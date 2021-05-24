@@ -1,5 +1,5 @@
 ################################### Default Configuration ############################
-baseurl = ""
+baseurl = "https://rishabhsnaik.netlify.app/"
 title = "Rishabh Naik"
 theme = "vex"
 # post excert
