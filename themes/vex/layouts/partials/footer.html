@@ -1,0 +1,96 @@
+<style>
+  @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+.social-container {
+
+
+  text-align: center;
+}
+
+.social-icons {
+  padding: 0;
+  list-style: none;
+  margin: 1em;
+}
+.social-icons li {
+  display: inline-block;
+  margin: 0.15em;
+  position: relative;
+  font-size: 1.2em;
+}
+.social-icons i {
+  color: #fff;
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  transition: all 265ms ease-out;
+}
+.social-icons a {
+  display: inline-block;
+}
+.social-icons a:before {
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  content: " ";
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  display: block;
+  background: linear-gradient(45deg, #00b5f5, #002a8f);
+  transition: all 265ms ease-out;
+}
+.social-icons a:hover:before {
+  transform: scale(0);
+  transition: all 265ms ease-in;
+}
+.social-icons a:hover i {
+  transform: scale(2.2);
+  -ms-transform: scale(2.2);
+  -webkit-transform: scale(2.2);
+  color: #00b5f5;
+  background: -webkit-linear-gradient(45deg, #00b5f5, #002a8f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 265ms ease-in;
+}
+</style>
+<footer style="background-color: #f0f0f0; ">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <a href="{{ site.BaseURL | relLangURL }}" class="mb-4 d-inline-block">{{ if site.Params.logo }} <img src="{{ site.Params.logo | absURL }}" alt="{{ site.Title }}" {{with site.Params.logo_width}}width="{{.}}"{{end}}> {{ else }} {{ .Title }} {{ end }}</a>
+          <ul class="list-inline footer-menu">
+            {{ range site.Menus.footer }}
+            <li class="list-inline-item">
+              <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+            
+          </ul>
+          <div class="social-container">
+            <ul class="social-icons">
+                <li><a href="https://www.instagram.com/rishabh._.naik/"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/rishabhnaik/"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+          <p class="copyright-text">{{ site.Params.copyright | markdownify }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<!-- JS Plugins -->
+{{ range site.Params.plugins.js}}
+<script src="{{ .link | absURL }}"></script>
+{{ end }}
+
+<!-- Main Script -->
+{{ $script := resources.Get "js/script.js" }}
+<script src="{{ $script.Permalink }}"></script>

@@ -1,0 +1,62 @@
+{{ define "main" }}
+
+
+
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+     <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      
+     <style>
+      .gal {
+       
+       
+       -webkit-column-count: 3; /* Chrome, Safari, Opera */
+         -moz-column-count: 3; /* Firefox */
+         column-count: 3;
+         
+       
+       }	
+       .gal img{ width: 100%; padding: 7px 0;}
+     @media (max-width: 500px) {
+         
+         .gal {
+       
+       
+       -webkit-column-count: 1; /* Chrome, Safari, Opera */
+         -moz-column-count: 1; /* Firefox */
+         column-count: 1;
+         
+       
+       }
+         
+       }
+     </style>
+     <section class="section gallery">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h1 class="font-weight-bold">Gallery</h1>
+          </div>
+         <!-- Page Content -->
+      
+           <div class="col-md-12">
+           <div class="row">
+           <hr>
+           
+             <div class="gal">
+             {{ range .Site.Data.images }}
+              <img src="https://drive.google.com/uc?export=view&id={{ .images }}" alt="{{ .alt }}">
+
+              {{ end }}
+                   
+             </div>
+             
+           </div>
+           </div>
+          
+       
+    
+    </div>
+  </div>
+</section>
+
+{{ end }}

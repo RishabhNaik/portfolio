@@ -1,0 +1,154 @@
+############################# banner ############################
+banner:
+  enable : true
+  title : "Welcome"
+  content : "Hey, My name is Rishabh. I am an Engineering student at Sambhram Institute of Technology, Bangalore. I am also a VKSSF scholar and a mentee at Sushiksha programme. 
+  An aspiring Digital artist creating his own dimensions of art."
+  image : "images/Rishabh.jpeg"
+  button:
+   enable : true
+   label : "Resume"
+   link : "https://ampl.com/try-ampl/download-a-free-demo/"
+
+############################# Feature ############################
+features:
+  enable : true
+  title : "Our Core Features"
+  image : "images/watch-2.png"
+
+  # feature at the left of the image
+  left_side:
+    # feature item loop
+  - title : "Smooth Touch"
+    icon : "tf-ion-ios-alarm-outline"
+    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?"
+    
+    # feature item loop
+  - title : "Elegant Design"
+    icon : "tf-ion-ios-bell-outline"
+    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?"
+    
+    # feature item loop
+  - title : "Easy Pricing"
+    icon : "tf-ion-ios-cart-outline"
+    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?"
+
+
+  # feature at the right of the image
+  right_side:
+    # feature item loop
+  - title : "Smooth Touch"
+    icon : "tf-ion-ios-alarm-outline"
+    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?"
+
+    # feature item loop
+  - title : "Elegant Design"
+    icon : "tf-ion-ios-bell-outline"
+    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?"
+
+    # feature item loop
+  - title : "Easy Pricing"
+    icon : "tf-ion-ios-cart-outline"
+    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?"
+
+
+############################# promo ############################
+promo:
+  enable : true
+  image : "images/Rishabh.jpeg"
+  title : "Welcome!"
+  content : "Hey, My name is Rishabh. I am an Engineering student at Sambhram Institute of Technology, Bangalore. I am also a VKSSF scholar and a mentee at Sushiksha programme. 
+  An aspiring Digital artist creating his own dimensions of art."
+  
+
+
+############################# About Product #######################
+about_product:
+  enable : true
+  title : "What can I do for you?"
+  items:
+    # about product item loop
+    - image : "https://cdn.thewirecutter.com/wp-content/uploads/2018/07/drawing-tablets-2018-2x1-lowres0148.jpg"
+      title : "Digital Illustration."
+      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur
+            sed esse, voluptas voluptate est veniam numquam, quis magni. Architecto minus suscipit
+            quas, quo harum deserunt consequatur cumque!"
+      button:
+        enable : true
+        label : "Gallery"
+        link : "#"
+        
+    # about product item loop
+    - image : "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png"
+      title : "Web devlopement"
+      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur
+            sed esse, voluptas voluptate est veniam numquam, quis magni. Architecto minus suscipit
+            quas, quo harum deserunt consequatur cumque!"
+      button:
+        enable : false
+        label : "Check Features"
+        link : "#"
+
+     # about product item loop
+    - image : "https://cdn.dribbble.com/users/1501969/screenshots/11111500/media/80435873ac4c921df75834618c36458a.jpg"
+      title : "Graphic Design"
+      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur
+            sed esse, voluptas voluptate est veniam numquam, quis magni. Architecto minus suscipit
+            quas, quo harum deserunt consequatur cumque!"
+      button:
+        enable : false
+        label : "Check Features"
+        link : "#"
+        
+    # # about product item loop
+    # - image : "images/showcase/showcase-3.png"
+    #   title : "Make a Logo."
+    #   content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur
+    #         sed esse, voluptas voluptate est veniam numquam, quis magni. Architecto minus suscipit
+    #         quas, quo harum deserunt consequatur cumque!"
+    #   button:
+    #     enable : false
+    #     label : "Check Features"
+    #     link : "#"
+
+
+        
+
+
+#################################### Products ########################
+products:
+  enable : true
+  title : "Checkout Our All Products"
+
+
+################################## Subscription ###################
+subscription:
+  enable : true
+  bg_image : "images/call-to-action.jpg"
+  title : "Get Product Updates"
+  content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
+  placeholder : "Your Email Address Here"
+
+
+############################## Testimonial ##########################
+testimonial:
+  enable : true
+  title : "Watch Review"
+  testimonial_item:
+    # testimonial item loop
+    - name : "Jonathon Andrew"
+      designation : "CEO, Themefisher"
+      image : "images/avater.png"
+      content : "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents."
+      
+    # testimonial item loop
+    - name : "Jonathon Andrew"
+      designation : "CEO, Themefisher"
+      image : "images/avater.png"
+      content : "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents."
+      
+    # testimonial item loop
+    - name : "Jonathon Andrew"
+      designation : "CEO, Themefisher"
+      image : "images/avater.png"
+      content : "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents."
