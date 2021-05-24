@@ -3,12 +3,12 @@ banner:
   enable : true
   title : "Welcome"
   content : "Hey, My name is Rishabh. I am an Engineering student at Sambhram Institute of Technology, Bangalore. I am also a VKSSF scholar and a mentee at Sushiksha programme. 
-  An aspiring Digital artist creating his own dimensions of art."
+  An aspiring Digital artist creating my own dimensions of art."
   image : "images/Rishabh.jpeg"
   button:
    enable : true
    label : "Resume"
-   link : "https://ampl.com/try-ampl/download-a-free-demo/"
+   link : "https://drive.google.com/file/d/1JngUW056QuP6PwOSSNJtoS1RO6rKuAr7/view?usp=sharing"
 
 ############################# Feature ############################
 features:

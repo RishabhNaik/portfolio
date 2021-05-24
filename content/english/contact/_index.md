@@ -4,9 +4,9 @@ description : "this is a meta description"
 
 office:
   title : "Social Media"
-  mobile : "0124857985320"
-  email : "demo@email.com"
-  location : "Dhaka, Bangladedsh"
+  mobile : "6360908381"
+  email : "rishabhnaik37@email.com"
+  location : "Banglore, India"
   content : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna"
 
 # opennig hour
