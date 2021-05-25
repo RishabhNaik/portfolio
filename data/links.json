@@ -2,21 +2,21 @@
     {
       "social": "LinkdIn",
       "icon":"fa-linkedin",
-      "para":"",
+      "para":"Connect with me on linkdin!",
       "hrf":"https://www.linkedin.com/in/rishabhnaik/"
 
     },
     {
       "social": "Github",
       "icon":"fa-github",
-      "para":"",
+      "para":"Discover repositories",
       "hrf":"https://github.com/RishabhNaik"
 
     },
     {
       "social": "Instgram",
       "icon":"fa-instagram",
-      "para":"",
+      "para":"Get to know about me on Instagram",
       "hrf":"https://www.instagram.com/rishabh._.naik/"
 
     },
@@ -30,7 +30,7 @@
     {
       "social": "Cosmix Instagram",
       "icon":"fa-instagram ",
-      "para":"",
+      "para":"All the art and music content on one page",
       "hrf":"https://www.instagram.com/cosmi.x_x/"
 
     }

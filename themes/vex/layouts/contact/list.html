@@ -1,9 +1,4 @@
 {{ define "main" }}
-<style>
-
-
-
-</style>
 <section class="section">
   <div class="container">
     
@@ -12,7 +7,7 @@
       <div class="container">
         <div class="row">
             <div class="col-md-4 col-xl-4">
-              {{with .mobile}}<a href="tel:{{ . }}">
+              {{with .mobile}}
                 <div class="card bg-c-blue order-card">
                     <div class="card-block">
                         <h2 class="m-b-20 ">Phone</h2>
@@ -20,14 +15,14 @@
                   
                     </div>
                 </div>
-              </a>
+              <a href="tel:{{ . }}" class="stretched-link"></a>
                 {{end }}
                
            
             </div>
             
             <div class="col-md-4 col-xl-4">
-              {{with .email}}   <a href="mailto:{{ . }}" >
+              {{with .email}}  
                 <div class="card bg-c-green order-card">
                   
                     <div class="card-block">
@@ -37,7 +32,7 @@
          
                     </div>
                 </div>
-              </a>
+                <a href="mailto:{{ . }}" class="stretched-link" ></a>
                 {{end }}
             </div>
             
@@ -48,8 +43,7 @@
                       <h2 class="m-b-20">Location</h2>
                       <h4 class="text-left mt-5">
                       <i class="tf-ion-compass mr-2"></i>{{ . }}</h4>
-       
-                  </div>
+                </div>
               </div>
               {{end }}
           </div>
@@ -78,7 +72,7 @@
                     <h3>{{ .social }}</h3>
                   </div>
                   <div class="box-text">
-                    <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                    <span>{{ .para}}</span>
                   </div>
                   <div class="box-btn">
                       <a href="{{ .hrf }}" class="stretched-link">Visit</a>

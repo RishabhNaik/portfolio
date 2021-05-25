@@ -5,7 +5,7 @@ $primary-font: 'Josefin Sans',
 sans-serif;
 $secondary-font: 'Droid Serif',
 serif;
-$primary-color: #f9a743;
+$primary-color: #002a8f;
 $icon-font: 'themefisher-font' !important;
 
 /*--
@@ -196,13 +196,14 @@ a:active {
 }
 
 .btn-main {
-  color: #fff;
+  color: rgb(44, 44, 44);
   border-radius: 30px;
   font-size: 18px;
   padding: 15px 40px;
   display: inline-block;
-  background-color: $primary-color;
-  box-shadow: 0 15px 40px rgba(249, 167, 68, 0.5);
+border-width:2px;
+border-color: rgb(36, 36, 36);
+  background-color: rgba(255, 255, 255, 0.13);
   background-image: linear-gradient(bottom, rgba(255, 239, 206, 0) 0%, rgba(255, 239, 206, 0.25) 100%);
 
   &:hover,
@@ -210,6 +211,30 @@ a:active {
     background-color: $primary-color;
     color: #fff;
   }
+}
+
+
+.btn-cus {
+  color: #fff;
+  border-radius: 30px;
+  font-size: 18px;
+  padding: 15px 40px;
+  display: inline-block;
+border-width:2px;
+border-color: papayawhip;
+  background-color: rgba(255, 255, 255, 0.13);
+  background-image: linear-gradient(bottom, rgba(255, 239, 206, 0) 0%, rgba(255, 239, 206, 0.25) 100%);
+
+  &:hover,
+  &:focus {
+    background-color: $primary-color;
+    color: #fff;
+  }
+}
+
+.btn-cus:hover{
+    color: #fff;
+  background-color: $primary-color;
 }
 
 .btn-main-sm {
@@ -712,14 +737,23 @@ a { color: inherit; }
 }
 
 .stretch{
-  
-  padding: 120px;
+  color:white;
+  background: linear-gradient(45deg, #00b5f5, #002a8f);
+  padding: 130px;
 }
 
 @media (max-width: 480px) {
   .stretch{
+  padding: 10px;
+  padding-top: 100px;
+  padding-bottom: 140px;
+  }
   
-    padding: 5px;
+}
+
+@media (max-width: 480px) {
+  .btnstretch{
+ margin-top: 50px;
   }
   
 }

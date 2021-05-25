@@ -7,7 +7,7 @@ banner:
   image : "images/Rishabh.jpeg"
   button:
    enable : true
-   label : "Resume"
+   label : "Download Resume "
    link : "https://drive.google.com/file/d/1JngUW056QuP6PwOSSNJtoS1RO6rKuAr7/view?usp=sharing"
 
 ############################# Feature ############################
@@ -76,7 +76,7 @@ about_product:
       button:
         enable : true
         label : "Gallery"
-        link : "#"
+        link : "/gallery"
         
     # about product item loop
     - image : "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png"
