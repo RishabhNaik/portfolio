@@ -5,7 +5,7 @@ $primary-font: 'Josefin Sans',
 sans-serif;
 $secondary-font: 'Droid Serif',
 serif;
-$primary-color: #002a8f;
+$primary-color: #0e88cf;
 $icon-font: 'themefisher-font' !important;
 
 /*--
@@ -202,7 +202,7 @@ a:active {
   padding: 15px 40px;
   display: inline-block;
 border-width:2px;
-border-color: rgb(36, 36, 36);
+border-color: rgba(36, 36, 36, 0.747);
   background-color: rgba(255, 255, 255, 0.13);
   background-image: linear-gradient(bottom, rgba(255, 239, 206, 0) 0%, rgba(255, 239, 206, 0.25) 100%);
 
@@ -221,7 +221,7 @@ border-color: rgb(36, 36, 36);
   padding: 15px 40px;
   display: inline-block;
 border-width:2px;
-border-color: papayawhip;
+border-color: rgb(213, 255, 255);
   background-color: rgba(255, 255, 255, 0.13);
   background-image: linear-gradient(bottom, rgba(255, 239, 206, 0) 0%, rgba(255, 239, 206, 0.25) 100%);
 
@@ -759,10 +759,40 @@ a { color: inherit; }
     max-width: 50px;
     max-height: 50px;
     margin-left: 0;
+    margin-bottom: 10px;
   }
 }
 
 .familiar{
-  padding:10px
+  padding:10px;
+  margin-bottom: 20px;
 }
 
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255);
+  width: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 10px;
+  width: 4px;;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+* {
+  scrollbar-width: thin;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}

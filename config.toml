@@ -78,7 +78,7 @@ weight = 2
 # Preloader
 [params.preloader]
 enable = true
-preloader = "" # use .png , .svg or .gif format
+preloader = "https://media.giphy.com/media/PUYgk3wpNk0WA/source.gif" # use .png , .svg or .gif format
 
 # Subscription
 [params.subscription]
@@ -95,13 +95,3 @@ contentDir = "content/english"
 weight = 1
 # copyright
 copyright = "Designed By [Themefisher](https://themefisher.com/) & Developed By [Gethugothemes](https://gethugothemes.com/), Modified by [Rishabh]()"
-
-
-################################### French language #####################################
-[Languages.fr]
-languageName = "Fr"
-languageCode = "fr-fr"
-contentDir = "content/french"
-weight = 2
-# copyright
-copyright = "Designed By [Themefisher](https://themefisher.com/) & Developed By [Gethugothemes](https://gethugothemes.com/)"
