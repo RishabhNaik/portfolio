@@ -68,7 +68,7 @@ about_product:
   title : "What can I do for you?"
   items:
     # about product item loop
-    - image : "https://cdn.thewirecutter.com/wp-content/uploads/2018/07/drawing-tablets-2018-2x1-lowres0148.jpg"
+    - image : ""
       title : "Digital Illustration."
       content : "I create very interesting paintings that are inspired by concept art and realistic objects. To make the effect ideal, I focus heavily on the brushwork and proportions.
        The artwork comes to life with the use of the proper instruments, 
@@ -79,9 +79,9 @@ about_product:
         link : "/gallery"
         
     # about product item loop
-    - image : "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png"
+    - image : ""
       title : "Web devlopement"
-      content : "I am keen to create static websites showcasing your work. It can comprise blogs, forums, portfolios, presentations or personal web pages. 
+      content : "I am keen to create static websites showcasing your work. It can comprise of blogs, forums, portfolios, presentations or personal web pages. 
       Due to their customizability of colours and features, these websites interact with your audience."
       button:
         enable : false
@@ -89,9 +89,9 @@ about_product:
         link : "#"
 
      # about product item loop
-    - image : "https://cdn.dribbble.com/users/1501969/screenshots/11111500/media/80435873ac4c921df75834618c36458a.jpg"
+    - image : ""
       title : "Graphic Design"
-      content : "Design can do wonders if it is done right. I focus on aesthetics and build with compositions the proper objects. For the project, I can create logos, posters, vector objects or assets.
+      content : "Design can do wonders if it is done right. I focus on aesthetics and build with compositions with the proper objects. I can create logos, posters, vector objects or assets.
        The designs can elicit a different set of emotions."
       button:
         enable : false

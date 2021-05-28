@@ -1,4 +1,5 @@
 {{ define "main" }}
+
 <section class="section">
   <div class="container">
     
@@ -86,28 +87,28 @@
           </div>
       </div>
 
-        
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-8">
+          <h2 class="font-weight-bold mb-4">{{ .Title | markdownify }}</h2>
+          <form action="https://forms.un-static.com/forms/2b45146ba992bdbff422d804e18bc3310eb06215" method="POST" class="row">
+            <div class="col-lg-6 mb-3">
+              <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Your Name">
+            </div>
+            <div class="col-lg-6 mb-3">
+              <input type="email" class="form-control mb-2" id="email" name="email" placeholder="Your Email">
+            </div>
+            <div class="col-12 mb-3">
+              <textarea name="message" id="message" class="form-control mb-2" placeholder="Your Message"></textarea>
+            </div>
+            <div class="col-12 text-right">
+              <button type="submit" value="send" class="btn btn-main btn-main-sm">send</button>
+            </div>
+          </form>
+        </div>
+      </div>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <h2 class="font-weight-bold mb-4">{{ .Title | markdownify }}</h2>
-        <form action="https://forms.un-static.com/forms/2b45146ba992bdbff422d804e18bc3310eb06215" method="POST" class="row">
-          <div class="col-lg-6 mb-3">
-            <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Your Name">
-          </div>
-          <div class="col-lg-6 mb-3">
-            <input type="email" class="form-control mb-2" id="email" name="email" placeholder="Your Email">
-          </div>
-          <div class="col-12 mb-3">
-            <textarea name="message" id="message" class="form-control mb-2" placeholder="Your Message"></textarea>
-          </div>
-          <div class="col-12 text-right">
-            <button type="submit" value="send" class="btn btn-main btn-main-sm">send</button>
-          </div>
-        </form>
-      </div>
-    </div>
+    
   
 </section>
 
