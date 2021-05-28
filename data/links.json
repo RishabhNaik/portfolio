@@ -23,12 +23,12 @@
     {
       "social": "Twitter",
       "icon":"fa-twitter",
-      "para":"",
-      "hrf":""
+      "para":"Twitter account",
+      "hrf":"https://twitter.com/rishabhnaik37"
 
     },
     {
-      "social": "Cosmix Instagram",
+      "social": "Cosmix ",
       "icon":"fa-instagram ",
       "para":"All the art and music content on one page",
       "hrf":"https://www.instagram.com/cosmi.x_x/"

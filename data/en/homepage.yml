@@ -70,9 +70,9 @@ about_product:
     # about product item loop
     - image : "https://cdn.thewirecutter.com/wp-content/uploads/2018/07/drawing-tablets-2018-2x1-lowres0148.jpg"
       title : "Digital Illustration."
-      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur
-            sed esse, voluptas voluptate est veniam numquam, quis magni. Architecto minus suscipit
-            quas, quo harum deserunt consequatur cumque!"
+      content : "I create very interesting paintings that are inspired by concept art and realistic objects. To make the effect ideal, I focus heavily on the brushwork and proportions.
+       The artwork comes to life with the use of the proper instruments, 
+       such as a graphic tablet and good software, such as Krita."
       button:
         enable : true
         label : "Gallery"
@@ -81,9 +81,8 @@ about_product:
     # about product item loop
     - image : "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png"
       title : "Web devlopement"
-      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur
-            sed esse, voluptas voluptate est veniam numquam, quis magni. Architecto minus suscipit
-            quas, quo harum deserunt consequatur cumque!"
+      content : "I am keen to create static websites showcasing your work. It can comprise blogs, forums, portfolios, presentations or personal web pages. 
+      Due to their customizability of colours and features, these websites interact with your audience."
       button:
         enable : false
         label : "Check Features"
@@ -92,9 +91,8 @@ about_product:
      # about product item loop
     - image : "https://cdn.dribbble.com/users/1501969/screenshots/11111500/media/80435873ac4c921df75834618c36458a.jpg"
       title : "Graphic Design"
-      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur
-            sed esse, voluptas voluptate est veniam numquam, quis magni. Architecto minus suscipit
-            quas, quo harum deserunt consequatur cumque!"
+      content : "Design can do wonders if it is done right. I focus on aesthetics and build with compositions the proper objects. For the project, I can create logos, posters, vector objects or assets.
+       The designs can elicit a different set of emotions."
       button:
         enable : false
         label : "Check Features"
