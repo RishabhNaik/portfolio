@@ -97,3 +97,7 @@ disableKinds = ["sitemap"]
 	from = "/*"
 	to = "/404.html"
 	status = 404
+
+[params]
+logo = "images/logo.png"
+logo_width = "32px"
