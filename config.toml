@@ -62,6 +62,7 @@ name = "Gallery"
 url = "gallery"
 weight = 5
 
+
 # footer menu
 [[menu.footer]]
 name = "Blog"
@@ -74,17 +75,11 @@ url = "contact"
 weight = 2
 
 
-
 # Preloader
 [params.preloader]
 enable = true
 preloader = "https://media.giphy.com/media/PUYgk3wpNk0WA/source.gif" # use .png , .svg or .gif format
 
-# Subscription
-[params.subscription]
-# mailchimp subsciption
-mailchimp_form_action = "https://gmail.us4.list-manage.com/subscribe/post?u=463ee871f45d2d93748e77cad&amp;id=a0a2c6d074" # replace this url with yours
-mailchimp_form_name = "b_463ee871f45d2d93748e77cad_a0a2c6d074" # replace this code with yours
 
 
 ################################### English language #####################################
@@ -95,3 +90,10 @@ contentDir = "content/english"
 weight = 1
 # copyright
 copyright = "Designed By [Rishabh Naik]()"
+
+disableKinds = ["sitemap"]
+
+[[redirects]]
+	from = "/*"
+	to = "/404.html"
+	status = 404
