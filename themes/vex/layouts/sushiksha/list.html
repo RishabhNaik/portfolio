@@ -1,0 +1,28 @@
+{{ define "main" }}
+
+<section class="section">
+  <div class="container ">
+    <h1 class="text-center mb-4 galler">Sushiksha Gallery</h1>
+    <div class="row justify-content-center">
+      
+      {{ range .Site.Data.sushiksha }}
+ 
+          <div class="mb-2 p-4">
+            <img width="300" height="300"src="https://drive.google.com/uc?export=view&id={{ .images }}" alt="{{ .alt }}" class="imger boder mb-3 img-fluid img-thumbnail" >
+          </div>
+        {{ end }}
+      
+    </div>
+  </div>
+</section>
+
+
+<script>
+    $(window).on("load",function(){
+      $(".loader-wrapper").fadeOut("slow");
+    });
+</script>
+
+{{ end }}
+
+

@@ -1,5 +1,7 @@
 ---
-title: "Our Latest Post"
+title: "Sushiksha"
 description : "this is a meta description"
 draft: false
+url: /wkc/vkssf/sushiksha/sophists
 ---
+
