@@ -80,7 +80,7 @@ about_product:
         
     # about product item loop
     - image : ""
-      title : "Web devlopement"
+      title : "Web development"
       content : "I am keen to create static websites showcasing your work. It can comprise of blogs, forums, portfolios, presentations or personal web pages. 
       Due to their customizability of colours and features, these websites interact with your audience."
       button:

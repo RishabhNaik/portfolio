@@ -1,6 +1,6 @@
 [
     {
-      "social": "LinkdIn",
+      "social": "LinkedIn",
       "icon":"fa-linkedin",
       "para":"Connect with me on linkdin!",
       "hrf":"https://www.linkedin.com/in/rishabhnaik/"
@@ -14,7 +14,7 @@
 
     },
     {
-      "social": "Instgram",
+      "social": "Instagram",
       "icon":"fa-instagram",
       "para":"Get to know about me on Instagram",
       "hrf":"https://www.instagram.com/rishabh._.naik/"
@@ -28,7 +28,7 @@
 
     },
     {
-      "social": "Cosmix ",
+      "social": "Cosmix",
       "icon":"fa-instagram ",
       "para":"All the art and music content on one page",
       "hrf":"https://www.instagram.com/cosmi.x_x/"
