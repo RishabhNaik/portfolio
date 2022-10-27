@@ -1,7 +1,7 @@
 ---
 title: "Display your work"
 date: 2021-05-07T11:22:16+06:00
-image: "https://images-na.ssl-images-amazon.com/images/I/51N+Ba1mYOL._SX258_BO1,204,203,200_.jpg"
+image: ""
 description : "this is a meta description"
 draft: false
 ---

@@ -2,13 +2,14 @@
 banner:
   enable : true
   title : "Welcome"
-  content : "Hey, My name is Rishabh. I am an Engineering student at Sambhram Institute of Technology, Bangalore. I am also a VKSSF scholar and a mentee at Sushiksha programme. 
-  An aspiring Digital artist creating my own dimensions of art."
+  content : "Hey, My name is Rishabh. "
+  # I am an Engineering student at Sambhram Institute of Technology, Bangalore. I am also a VKSSF scholar and a mentee at Sushiksha programme. 
+  # An aspiring Digital artist creating my own dimensions of art.
   image : "images/Rishabh.jpeg"
   button:
    enable : true
    label : "View Resume"
-   link : "https://drive.google.com/file/d/1JngUW056QuP6PwOSSNJtoS1RO6rKuAr7/view?usp=sharing"
+   link : "https://drive.google.com/file/d/1RRsOacEYqRz0nDekhrGLhBBGmVlIoTuC/view"
 
 ############################# Feature ############################
 features:
@@ -129,24 +130,24 @@ subscription:
 
 
 ############################## Testimonial ##########################
-testimonial:
-  enable : true
-  title : "Watch Review"
-  testimonial_item:
-    # testimonial item loop
-    - name : "Jonathon Andrew"
-      designation : "CEO, Themefisher"
-      image : "images/avater.png"
-      content : "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents."
+# testimonial:
+#   enable : true
+#   title : "Watch Review"
+#   testimonial_item:
+#     # testimonial item loop
+#     - name : "Jonathon Andrew"
+#       designation : "CEO, Themefisher"
+#       image : "images/avater.png"
+#       content : "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents."
       
-    # testimonial item loop
-    - name : "Jonathon Andrew"
-      designation : "CEO, Themefisher"
-      image : "images/avater.png"
-      content : "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents."
+#     # testimonial item loop
+#     - name : "Jonathon Andrew"
+#       designation : "CEO, Themefisher"
+#       image : "images/avater.png"
+#       content : "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents."
       
-    # testimonial item loop
-    - name : "Jonathon Andrew"
-      designation : "CEO, Themefisher"
-      image : "images/avater.png"
-      content : "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents."
+#     # testimonial item loop
+#     - name : "Jonathon Andrew"
+#       designation : "CEO, Themefisher"
+#       image : "images/avater.png"
+#       content : "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents."
