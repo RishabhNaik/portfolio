@@ -1,0 +1,208 @@
+/* ========================================================
+   FROSTED SAPPHIRE GLASS BENTO DESIGN SYSTEM
+   ======================================================== */
+
+.frosted-bento-wrapper {
+  min-height: 100vh;
+  background-color: #040914;
+  position: relative;
+  overflow-x: hidden;
+  color: #f1f5f9;
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  padding: 30px 20px 80px;
+}
+
+/* Multi-layered Ambient Blurred Gradient Orbs */
+.frosted-ambient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-orb-1 {
+  position: absolute;
+  top: -10%;
+  left: 10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(25, 121, 209, 0.35) 0%, rgba(19, 56, 101, 0.1) 60%, transparent 80%);
+  filter: blur(80px);
+  animation: floatOrb1 18s ease-in-out infinite alternate;
+}
+
+.ambient-orb-2 {
+  position: absolute;
+  top: 30%;
+  right: -5%;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(81, 171, 219, 0.3) 0%, rgba(14, 121, 221, 0.1) 60%, transparent 80%);
+  filter: blur(90px);
+  animation: floatOrb2 22s ease-in-out infinite alternate;
+}
+
+.ambient-orb-3 {
+  position: absolute;
+  bottom: 10%;
+  left: 20%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 52, 94, 0.4) 0%, rgba(1, 20, 43, 0.2) 60%, transparent 80%);
+  filter: blur(100px);
+  animation: floatOrb3 20s ease-in-out infinite alternate;
+}
+
+.ambient-orb-4 {
+  position: absolute;
+  top: 70%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.2) 0%, transparent 70%);
+  filter: blur(75px);
+}
+
+@keyframes floatOrb1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, 60px) scale(1.15); }
+}
+
+@keyframes floatOrb2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-70px, 90px) scale(0.9); }
+}
+
+@keyframes floatOrb3 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, -50px) scale(1.1); }
+}
+
+/* Frosted Bento Container */
+.frosted-container {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Master Asymmetrical Grid */
+.frosted-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .frosted-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .frosted-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Frosted Glass Card Types */
+.frosted-card {
+  background: rgba(10, 25, 52, 0.45);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(147, 197, 253, 0.22);
+  border-radius: 30px;
+  padding: 26px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 5, 20, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 0 20px rgba(81, 171, 219, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.frosted-card:hover {
+  border-color: rgba(147, 197, 253, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 26px 60px -12px rgba(0, 10, 35, 0.8),
+    0 0 25px rgba(81, 171, 219, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Frosted Card Accent - Electric Sapphire Gradient */
+.frosted-card-accent {
+  background: linear-gradient(145deg, rgba(29, 78, 216, 0.55) 0%, rgba(15, 23, 42, 0.65) 100%);
+  border: 1px solid rgba(147, 197, 253, 0.35);
+}
+
+/* Frosted Card Ice Light Tint */
+.frosted-card-ice {
+  background: rgba(225, 236, 251, 0.12);
+  border: 1px solid rgba(225, 236, 251, 0.3);
+}
+
+.frosted-card-ice:hover {
+  background: rgba(225, 236, 251, 0.18);
+  border-color: rgba(225, 236, 251, 0.5);
+}
+
+/* Frosted Pill Navigation Header */
+.frosted-header {
+  position: sticky;
+  top: 18px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.frosted-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background: rgba(6, 18, 38, 0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(147, 197, 253, 0.25);
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(81, 171, 219, 0.15);
+}
+
+/* Equalizer Bars Animation */
+.eq-bar {
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(to top, #2563eb, #60a5fa, #93c5fd);
+  animation: eqPulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes eqPulse {
+  0% { height: 6px; }
+  100% { height: 32px; }
+}
+
+/* Specular Shimmer Edge */
+.frosted-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  pointer-events: none;
+}

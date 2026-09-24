@@ -1,0 +1,296 @@
+/* ========================================================
+   FUNKY SAPPHIRE BENTO GRID DESIGN SYSTEM
+   Palette:
+   --sapphire-darkest: #01142B
+   --sapphire-deep: #051831
+   --sapphire-navy: #0e1c36
+   --sapphire-primary: #133865
+   --cobalt-primary: #1979D1
+   --cerulean-bright: #51ABDB
+   --ice-blue: #DFF0FA
+   --ice-light: #E1ECFB
+   --frost-border: rgba(81, 171, 219, 0.22)
+   --frost-glow: 0 0 25px rgba(81, 171, 219, 0.2)
+   ======================================================== */
+
+.bento-wrapper {
+  min-height: 100vh;
+  background-color: #030814;
+  background-image: 
+    radial-gradient(circle at 20% 15%, rgba(25, 121, 209, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 80% 40%, rgba(81, 171, 219, 0.14) 0%, transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(19, 56, 101, 0.25) 0%, transparent 50%),
+    linear-gradient(180deg, #020712 0%, #040d1e 50%, #020610 100%);
+  color: #f5f8fc;
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Crystal Ambient Shimmer */
+.crystal-ambient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 600px;
+  background: radial-gradient(ellipse at 50% -20%, rgba(81, 171, 219, 0.25) 0%, rgba(1, 20, 43, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Container */
+.bento-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Section Spacing */
+.bento-section {
+  padding: 60px 0;
+}
+
+@media (max-width: 768px) {
+  .bento-section {
+    padding: 40px 0;
+  }
+}
+
+/* Base Bento Card */
+.bento-card {
+  background: linear-gradient(145deg, rgba(14, 28, 54, 0.65) 0%, rgba(5, 24, 49, 0.85) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(81, 171, 219, 0.18);
+  border-radius: 24px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 32px -4px rgba(0, 5, 20, 0.6), inset 0 1px 1px rgba(225, 236, 251, 0.15);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+  border-color: rgba(81, 171, 219, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px -8px rgba(0, 10, 30, 0.8), 0 0 25px rgba(81, 171, 219, 0.18);
+}
+
+.bento-card-highlight {
+  border-color: rgba(81, 171, 219, 0.35);
+  background: linear-gradient(145deg, rgba(19, 56, 101, 0.4) 0%, rgba(5, 24, 49, 0.9) 100%);
+}
+
+.bento-card-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #51ABDB, #1979D1, transparent);
+}
+
+/* Crystal Facet Specular Highlight */
+.crystal-facet {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(81, 171, 219, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+/* Bento Grid System */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Column Spans */
+.col-span-12 { grid-column: span 12; }
+.col-span-8 { grid-column: span 8; }
+.col-span-7 { grid-column: span 7; }
+.col-span-6 { grid-column: span 6; }
+.col-span-5 { grid-column: span 5; }
+.col-span-4 { grid-column: span 4; }
+.col-span-3 { grid-column: span 3; }
+
+@media (max-width: 1024px) {
+  .col-span-8 { grid-column: span 6; }
+  .col-span-7 { grid-column: span 6; }
+  .col-span-5 { grid-column: span 6; }
+  .col-span-4 { grid-column: span 3; }
+  .col-span-3 { grid-column: span 3; }
+}
+
+@media (max-width: 640px) {
+  .col-span-12,
+  .col-span-8,
+  .col-span-7,
+  .col-span-6,
+  .col-span-5,
+  .col-span-4,
+  .col-span-3 {
+    grid-column: span 1 !important;
+  }
+}
+
+/* Tag Pills */
+.bento-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: rgba(81, 171, 219, 0.12);
+  color: #51ABDB;
+  border: 1px solid rgba(81, 171, 219, 0.25);
+}
+
+.bento-tag-blue {
+  background: rgba(25, 121, 209, 0.15);
+  color: #67A1EB;
+  border-color: rgba(25, 121, 209, 0.3);
+}
+
+.bento-tag-ice {
+  background: rgba(225, 236, 251, 0.1);
+  color: #E1ECFB;
+  border-color: rgba(225, 236, 251, 0.2);
+}
+
+/* Funky Buttons */
+.bento-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #51ABDB 0%, #1979D1 60%, #133865 100%);
+  border: 1px solid rgba(225, 236, 251, 0.3);
+  box-shadow: 0 8px 20px rgba(25, 121, 209, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.bento-btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(81, 171, 219, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+.bento-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #DFF0FA;
+  background: rgba(19, 56, 101, 0.3);
+  border: 1px solid rgba(81, 171, 219, 0.25);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.bento-btn-secondary:hover {
+  background: rgba(81, 171, 219, 0.15);
+  border-color: #51ABDB;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Floating Glass Header */
+.bento-header {
+  position: fixed;
+  top: 18px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.bento-header-inner {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  background: rgba(5, 24, 49, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(81, 171, 219, 0.25);
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(81, 171, 219, 0.15);
+  transition: all 0.3s ease;
+}
+
+.bento-nav-link {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #B4C9D4;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.bento-nav-link:hover {
+  color: #ffffff;
+  background: rgba(81, 171, 219, 0.15);
+}
+
+/* Glow Keyframes */
+@keyframes crystalPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(81, 171, 219, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(81, 171, 219, 0.45);
+  }
+}
+
+.crystal-pulse {
+  animation: crystalPulse 4s ease-in-out infinite;
+}

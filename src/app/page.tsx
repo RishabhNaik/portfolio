@@ -1,13 +1,15 @@
-import Hero from '@/components/Hero';
-import Services from '@/components/Services';
-import FamiliarWith from '@/components/FamiliarWith';
+"use client";
 
-export default function HomePage() {
+import React from "react";
+import { NauticaSapphirePortfolio } from "@/components/clean/NauticaSapphirePortfolio";
+import { ContactModal } from "@/components/contact/ContactModal";
+import "@/app/nautica-sapphire.css";
+
+export default function Home() {
   return (
-    <>
-      <Hero />
-      <Services />
-      <FamiliarWith />
-    </>
+    <main>
+      <NauticaSapphirePortfolio />
+      <ContactModal />
+    </main>
   );
 }

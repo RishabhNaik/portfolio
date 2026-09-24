@@ -1,0 +1,493 @@
+/* =========================================================
+   BLUE SHADE FEATURE CARDS
+   Matching user reference board with volumetric blue light rays,
+   floating tactile glassmorphic mockups, and bold typography.
+   Palette: #01142B, #051831, #133865, #1979D1, #51ABDB, #B4C9D4
+   ========================================================= */
+
+.section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-pad-x);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Centered Header Block */
+.headerBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 780px;
+  gap: 0.85rem;
+}
+
+.sectionHeadline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  line-height: 1.15;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+}
+
+.sectionSubline {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 1.3vw, 1.125rem);
+  color: var(--palette-mist-primary);
+  line-height: 1.6;
+  max-width: 680px;
+}
+
+/* =========================================================
+   3-COLUMN CARDS GRID
+   ========================================================= */
+.cardsGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.card {
+  position: relative;
+  background: rgba(5, 24, 49, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(81, 171, 219, 0.2);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.85);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(81, 171, 219, 0.55);
+  box-shadow: 
+    0 32px 75px -12px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(25, 121, 209, 0.25);
+}
+
+/* =========================================================
+   TOP VISUAL STAGE WITH VOLUMETRIC LIGHT RAYS
+   ========================================================= */
+.stage {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  background: #01142b;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(81, 171, 219, 0.12);
+}
+
+/* Volumetric Blue Light Ray: Card 1 (Top-Left Cobalt Beam) */
+.lightRayCobalt {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: 
+    conic-gradient(
+      from 135deg at 10% 10%,
+      rgba(25, 121, 209, 0.42) 0deg,
+      rgba(81, 171, 219, 0.2) 35deg,
+      transparent 70deg
+    ),
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(64, 155, 248, 0.55) 0%,
+      rgba(25, 121, 209, 0.2) 40%,
+      transparent 70%
+    );
+  filter: blur(28px);
+  -webkit-filter: blur(28px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Volumetric Blue Light Ray: Card 2 (Center-Top Cerulean Spotlight) */
+.lightRayCerulean {
+  position: absolute;
+  top: -30%;
+  left: 10%;
+  width: 80%;
+  height: 140%;
+  background: 
+    radial-gradient(
+      ellipse 70% 80% at 50% 0%,
+      rgba(81, 171, 219, 0.45) 0%,
+      rgba(25, 121, 209, 0.2) 45%,
+      transparent 75%
+    );
+  filter: blur(26px);
+  -webkit-filter: blur(26px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Volumetric Blue Light Ray: Card 3 (Top-Right Deep Sapphire & Mist Beam) */
+.lightRaySapphire {
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 140%;
+  height: 140%;
+  background: 
+    conic-gradient(
+      from 225deg at 90% 10%,
+      rgba(180, 201, 212, 0.35) 0deg,
+      rgba(81, 171, 219, 0.25) 30deg,
+      rgba(19, 56, 101, 0.4) 60deg,
+      transparent 85deg
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(180, 201, 212, 0.45) 0%,
+      rgba(81, 171, 219, 0.2) 45%,
+      transparent 70%
+    );
+  filter: blur(28px);
+  -webkit-filter: blur(28px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =========================================================
+   FLOATING TACTILE GLASS MOCKUPS
+   ========================================================= */
+
+/* --- Mockup 1: Template Selection Window (Matching Ref Card 1) --- */
+.mockupWindow {
+  position: relative;
+  z-index: 5;
+  width: 92%;
+  max-width: 290px;
+  background: rgba(5, 24, 49, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(81, 171, 219, 0.35);
+  border-radius: 14px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(25, 121, 209, 0.22);
+  transform: translateY(-4px);
+}
+
+.windowHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.windowTitle {
+  font-family: var(--font-heading);
+  font-size: 0.78125rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.windowSub {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  color: var(--palette-mist-steel);
+}
+
+.windowList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.windowItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-heading);
+  font-size: 0.71875rem;
+  color: var(--palette-mist-primary);
+}
+
+/* Active Glowing Item with Cursor Hand */
+.windowItemActive {
+  position: relative;
+  background: rgba(25, 121, 209, 0.35);
+  border: 1px solid rgba(81, 171, 219, 0.8);
+  color: #ffffff;
+  font-weight: 500;
+  box-shadow: 
+    0 0 16px rgba(25, 121, 209, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.itemIconBox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: rgba(81, 171, 219, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--palette-cerulean-primary);
+}
+
+.windowItemActive .itemIconBox {
+  background: var(--palette-cobalt-primary);
+  color: #ffffff;
+}
+
+.cursorPointer {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+  animation: pointerFloat 2s ease-in-out infinite alternate;
+}
+
+@keyframes pointerFloat {
+  0% { transform: translateY(-50%) translate(0, 0); }
+  100% { transform: translateY(-50%) translate(-2px, 2px); }
+}
+
+/* Background Mockup Frame behind the window */
+.bgWireframe {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 65%;
+  height: 70%;
+  border-radius: 10px;
+  border: 1px solid rgba(81, 171, 219, 0.15);
+  background: rgba(5, 24, 49, 0.45);
+  z-index: 2;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0.6;
+}
+
+.wireframeBar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Mockup 2: Connected Node Stack (Matching Ref Card 2) --- */
+.nodeStack {
+  position: relative;
+  z-index: 5;
+  width: 90%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.nodeStack::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(81, 171, 219, 0.2) 0%, rgba(81, 171, 219, 0.8) 50%, rgba(81, 171, 219, 0.2) 100%);
+  z-index: 1;
+}
+
+.nodeCard {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.95rem;
+  border-radius: 10px;
+  background: rgba(5, 24, 49, 0.85);
+  border: 1px solid rgba(81, 171, 219, 0.2);
+  font-family: var(--font-heading);
+  font-size: 0.78125rem;
+  color: var(--palette-mist-steel);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.nodeCardActive {
+  background: linear-gradient(135deg, rgba(6, 52, 94, 0.9) 0%, rgba(25, 121, 209, 0.4) 100%);
+  border: 1px solid rgba(81, 171, 219, 0.85);
+  color: #ffffff;
+  font-weight: 500;
+  box-shadow: 
+    0 0 24px rgba(81, 171, 219, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.nodeIconBox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--palette-cerulean-primary);
+  flex-shrink: 0;
+}
+
+.nodeCardActive .nodeIconBox {
+  background: var(--palette-cobalt-primary);
+  color: #ffffff;
+}
+
+/* --- Mockup 3: Context Actions Menu (Matching Ref Card 3) --- */
+.actionMenuCard {
+  position: relative;
+  z-index: 5;
+  width: 90%;
+  max-width: 280px;
+  background: rgba(5, 24, 49, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(81, 171, 219, 0.3);
+  border-radius: 14px;
+  padding: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  box-shadow: 
+    0 20px 48px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(19, 56, 101, 0.3);
+}
+
+.menuHeaderBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(81, 171, 219, 0.15);
+}
+
+.menuHeaderTitle {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--palette-mist-steel);
+}
+
+.menuIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--palette-mist-steel);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.71875rem;
+  color: var(--palette-mist-primary);
+  transition: background 0.15s ease;
+}
+
+.menuItemActive {
+  background: linear-gradient(90deg, rgba(25, 121, 209, 0.45) 0%, rgba(81, 171, 219, 0.25) 100%);
+  border: 1px solid rgba(81, 171, 219, 0.7);
+  color: #ffffff;
+  font-weight: 500;
+  box-shadow: 0 0 16px rgba(25, 121, 209, 0.35);
+}
+
+.avatarPillBadge {
+  position: absolute;
+  bottom: -10px;
+  right: -8px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #1979d1;
+  color: #ffffff;
+  border: 1px solid #51abdb;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================================
+   BOTTOM CARD CONTENT ZONE
+   ========================================================= */
+.cardContent {
+  padding: clamp(1.4rem, 2.5vw, 1.85rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 1.8vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.cardDescription {
+  font-family: var(--font-body);
+  font-size: 0.90625rem;
+  line-height: 1.6;
+  color: var(--palette-mist-primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .stage {
+    height: 290px;
+  }
+}

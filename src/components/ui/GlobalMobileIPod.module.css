@@ -1,0 +1,231 @@
+.globalIpodWrapper {
+  display: none;
+}
+
+@media (max-width: 840px) {
+  .globalIpodWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.25rem;
+    z-index: 9990;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    pointer-events: auto;
+    animation: fadeInIpod 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@keyframes fadeInIpod {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.ipodWheelContainer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  min-height: 120px;
+  max-width: 120px;
+  max-height: 120px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(145deg, #242731, #12141a);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 
+    0 18px 40px -6px rgba(0, 0, 0, 0.95),
+    0 6px 16px rgba(0, 0, 0, 0.7),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  touch-action: none;
+  cursor: grab;
+}
+
+.ipodWheelContainer:active {
+  cursor: grabbing;
+}
+
+.clickWheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #181a22 0%, #0d0e13 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheelButton {
+  position: absolute;
+  color: #8c929e;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.15s ease;
+  z-index: 4;
+}
+
+.wheelButton:hover,
+.wheelButton:active {
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.btnMenu {
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btnMenu:active {
+  transform: translateX(-50%) scale(0.92);
+}
+
+.btnLeft {
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btnLeft:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.btnRight {
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btnRight:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.btnBottom {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btnBottom:active {
+  transform: translateX(-50%) scale(0.92);
+}
+
+.centerButton {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2b2e38 0%, #15171e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.7),
+    inset 0 1px 2px rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  z-index: 5;
+}
+
+.centerButton:hover {
+  background: linear-gradient(135deg, #353846 0%, #1c1e28 100%);
+}
+
+.centerButton:active {
+  transform: scale(0.92);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.centerGleam {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.65);
+  filter: blur(1.5px);
+}
+
+.wheelTickRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  transition: transform 0.05s linear;
+}
+
+.wheelTickMark {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 6px;
+  border-radius: 1px;
+  background: #00d2ff;
+  box-shadow: 0 0 8px rgba(0, 210, 255, 0.9);
+}
+
+.ipodStatus {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ipodTrackNumber {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(12, 14, 18, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  padding: 3px 9px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 210, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.statusModeIcon {
+  flex-shrink: 0;
+  color: #00d2ff;
+}

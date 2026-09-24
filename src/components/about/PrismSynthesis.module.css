@@ -1,0 +1,362 @@
+.synthesisWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header Section */
+.stageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #00e5ff;
+}
+
+.eyebrowIcon {
+  color: #00e5ff;
+}
+
+.stageTitle {
+  font-family: var(--font-figtree), var(--font-heading);
+  font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.whiteHighlight {
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+}
+
+.stageSubtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.65;
+  color: rgba(245, 245, 247, 0.7);
+}
+
+/* Canvas Stage Container */
+.stageCanvasContainer {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  background: radial-gradient(circle at 45% 50%, #15151e 0%, #0c0c11 60%, #07070a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.95), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.synthesisCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 420px;
+}
+
+/* Input Beams Interactive Overlay (Left side) */
+.inputBeamsOverlay {
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.beamPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(18, 18, 24, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  color: rgba(245, 245, 247, 0.85);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.beamPill:hover,
+.beamPillActive {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--discipline-color);
+  color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: 0 0 16px var(--discipline-color);
+}
+
+.beamName {
+  font-weight: 500;
+}
+
+.beamWave {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  opacity: 0.55;
+}
+
+/* Output Beam Card Overlay (Right side) */
+.outputBeamOverlay {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 300px;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.whiteBeamCard {
+  background: rgba(25, 25, 34, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(255, 255, 255, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.whiteBeamTitle {
+  font-family: var(--font-figtree), var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.whiteBeamDesc {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: rgba(245, 245, 247, 0.75);
+}
+
+.whiteBeamAuthor {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Disciplines Explorer Grid Below Stage */
+.disciplinesExplorer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.explorerHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.explorerTitle {
+  font-family: var(--font-figtree), var(--font-heading);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.explorerSub {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: rgba(245, 245, 247, 0.65);
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.disciplineCard {
+  background: #14141a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.disciplineCard:hover,
+.cardActive {
+  transform: translateY(-4px);
+  border-color: var(--card-color);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(var(--card-color), 0.15);
+}
+
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardWavelengthBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(245, 245, 247, 0.8);
+}
+
+.colorIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.cardNumber {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.cardCategory {
+  font-family: var(--font-heading);
+  font-size: 0.71875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--card-color);
+}
+
+.cardName {
+  font-family: var(--font-figtree), var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.cardDescription {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(245, 245, 247, 0.68);
+}
+
+.toolsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.toolChip {
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  color: rgba(245, 245, 247, 0.85);
+}
+
+.impactFooter {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.impactLabel {
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.impactText {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgba(245, 245, 247, 0.85);
+}
+
+/* Tablet & Mobile Adjustments */
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .outputBeamOverlay {
+    position: static;
+    transform: none;
+    max-width: 100%;
+    margin: 1rem;
+  }
+
+  .inputBeamsOverlay {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stageTitle {
+    font-size: 1.85rem;
+  }
+}

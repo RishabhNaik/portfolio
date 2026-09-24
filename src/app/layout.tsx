@@ -1,49 +1,42 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { siteConfig } from '@/data/siteData';
+import type { Metadata } from "next";
+import { Figtree, Fraunces } from "next/font/google";
+import Script from "next/script";
+import "./globals.css";
+import { ContactModal } from "@/components/contact/ContactModal";
+
+const figtree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: {
-    default: `${siteConfig.title} | Portfolio & Digital Art`,
-    template: `%s | ${siteConfig.title}`,
-  },
-  description: siteConfig.description,
+  title: "Rishabh Naik — Full-Stack Developer & Software Engineer",
+  description:
+    "Portfolio of Rishabh Naik — Full-Stack Software Developer based in Bangalore, building scalable production platforms at Anantaloop with Next.js, React, Node.js, Python, and AWS.",
   keywords: [
-    'Rishabh Naik',
-    'Digital Artist',
-    'Concept Art',
-    'Illustrations',
-    'Krita',
-    'Frontend Developer',
-    'Portfolio',
-    'Sushiksha',
-    'VKSSF Scholar',
+    "Rishabh Naik",
+    "Full-Stack Developer",
+    "Software Engineer",
+    "Next.js",
+    "React",
+    "NestJS",
+    "Bangalore",
+    "AI Systems",
   ],
-  authors: [{ name: 'Rishabh Naik' }],
-  creator: 'Rishabh Naik',
-  metadataBase: new URL(siteConfig.baseUrl),
+  authors: [{ name: "Rishabh Naik" }],
   openGraph: {
-    title: `${siteConfig.title} | Portfolio & Digital Art`,
-    description: siteConfig.description,
-    url: siteConfig.baseUrl,
-    siteName: siteConfig.title,
-    images: [
-      {
-        url: '/images/Rishabh.jpeg',
-        width: 800,
-        height: 600,
-        alt: siteConfig.title,
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  icons: {
-    icon: '/images/favicon.png',
-    shortcut: '/images/favicon.ico',
-    apple: '/images/favicon.png',
+    title: "Rishabh Naik — Full-Stack Developer Portfolio",
+    description: "Full-Stack Software Developer based in Bangalore. Building scalable web platforms, APIs, and AI systems.",
+    url: "https://rishabhnaik.com",
+    siteName: "Rishabh Naik Portfolio",
+    type: "website",
   },
 };
 
@@ -53,11 +46,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        <main style={{ flex: '1 0 auto' }}>{children}</main>
-        <Footer />
+    <html lang="en" className={`${figtree.variable} ${fraunces.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={figtree.className}>
+        <Script id="disable-context-menu" strategy="afterInteractive">
+          {`
+            document.addEventListener('contextmenu', function(e) {
+              if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO' || e.target.tagName === 'AUDIO') {
+                e.preventDefault();
+              }
+            }, false);
+          `}
+        </Script>
+        <div className="film-grain" aria-hidden="true" />
+        {children}
+        <ContactModal />
       </body>
     </html>
   );
