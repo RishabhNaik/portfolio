@@ -1,56 +1,83 @@
-export interface TechnicalSpecs {
-  camera?: string;
-  lenses?: string;
-  audio?: string;
-  aspectRatio?: string;
-  filmStock?: string;
-  colorGrade?: string;
-  lighting?: string;
-  location?: string;
+export interface SoftwareArchitecture {
+  frontend?: string[];
+  backend?: string[];
+  database?: string[];
+  cloud?: string[];
+  api?: string[];
+  ai?: string[];
 }
 
-export interface ProductionStill {
+export interface TechnicalDecision {
+  title: string;
+  rationale: string;
+}
+
+export interface ProjectScreenshot {
   url: string;
   caption: string;
+  tag?: string;
   role?: string;
 }
 
-export interface ProjectCredit {
-  role: string;
-  name: string;
+export interface TechnicalSpecs {
+  frontend?: string;
+  backend?: string;
+  database?: string;
+  infrastructure?: string;
+  architecture?: string;
+  testing?: string;
+  auth?: string;
+  location?: string;
+  [key: string]: string | undefined;
 }
 
-export interface BTSShot {
+export interface SoftwareProject {
   id: string;
   title: string;
   date: string;
   category: string;
   description: string;
   synopsis?: string;
-  director?: string;
-  cinematographer?: string;
-  client?: string;
-  location?: string;
-  duration?: string;
-  aspectRatio?: string;
+  role: string;
+  company: string;
+  location: string;
+  status: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  
+  // Case Study Sections
+  problem?: string;
+  product?: string;
+  contribution: string;
+  architecture?: SoftwareArchitecture;
+  technicalDecisions?: TechnicalDecision[];
+  results?: string[];
+  learnings?: string;
+
+  // Media
   imageUrl: string;
   heroImageUrl?: string;
   coverImageUrl?: string;
   previewUrl?: string;
-  mediaType: "video" | "image";
   tags: string[];
-  
-  // Rich details for the Project Detail Page
-  technicalSpecs?: TechnicalSpecs;
-  stills?: ProductionStill[];
-  credits?: ProjectCredit[];
+  screenshots?: ProjectScreenshot[];
 
-  // Placement coordinates for the Printed Image Field (Section 03)
-  // Deterministic percentage-based values
-  printX: number;       // 0 - 100%
-  printY: number;       // 0 - 100%
-  printWidth: number;   // base width in px for desktop
-  rotation: number;     // -4.0 to +4.0 degrees
-  zIndex: number;
+  // Backwards compatibility
+  technicalSpecs?: TechnicalSpecs;
+  stills?: ProjectScreenshot[];
+  mediaType?: "video" | "image";
+  client?: string;
+  director?: string;
+  cinematographer?: string;
+  duration?: string;
+  aspectRatio?: string;
+  printX?: number;
+  printY?: number;
+  printWidth?: number;
+  rotation?: number;
+  zIndex?: number;
   label?: string;
 }
+
+// Alias for backwards compatibility
+export type BTSShot = SoftwareProject;

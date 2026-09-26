@@ -1,1200 +1,837 @@
-/* =========================================================
-   NETFLIX LANDING LAYOUT FOR PROJECT DETAILS
-   Full-Bleed Billboard Hero + Hub Tabs + Episode Cards + Cinema Player
-   Pure Noir, Obsidian Titanium Aesthetics, Zero Orange
-   ========================================================= */
+/* ==========================================================================
+   OBSIDIAN DARK BASALT & EMERALD ACCENTS — PROJECT CASE STUDY PAGE
+   ========================================================================== */
 
-.projectDetailPage,
-.netflixPage {
-  background-color: #07080b;
-  color: #f5f5f7;
+.caseStudyPage {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow-x: hidden;
-  font-family: var(--font-body);
+  background-color: #111113;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(22, 163, 74, 0.08), transparent 70%),
+    radial-gradient(circle at 85% 30%, rgba(74, 222, 128, 0.04), transparent 45%);
+  color: #f4f4f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 60px;
 }
 
-/* =========================================================================
-   1. FULL-BLEED BILLBOARD HERO (Netflix Style)
-   ========================================================================= */
-.billboardSection {
-  position: relative;
-  width: 100vw;
-  height: clamp(550px, 86vh, 880px);
-  min-height: 520px;
-  display: flex;
-  align-items: flex-end;
-  padding: 0 clamp(1.5rem, 5vw, 4.5rem) clamp(3rem, 6vh, 5rem);
-  overflow: hidden;
-  user-select: none;
+.container {
+  max-width: 1540px;
+  width: 94%;
+  margin: 0 auto;
 }
 
-.billboardBackdrop {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.billboardImg {
-  object-fit: cover;
-  object-position: center 25%;
-  filter: contrast(108%) brightness(0.92);
-  transform: scale(1.02);
-}
-
-/* Netflix Signature Vignettes */
-.vignetteLeft {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(7, 8, 11, 0.98) 0%,
-    rgba(7, 8, 11, 0.85) 30%,
-    rgba(7, 8, 11, 0.4) 60%,
-    transparent 100%
-  );
-  z-index: 1;
-}
-
-.vignetteBottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 65%;
-  background: linear-gradient(
-    0deg,
-    #07080b 0%,
-    rgba(7, 8, 11, 0.9) 25%,
-    rgba(7, 8, 11, 0.4) 60%,
-    transparent 100%
-  );
-  z-index: 1;
-}
-
-.vignetteTop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 35%;
-  background: linear-gradient(
-    180deg,
-    rgba(7, 8, 11, 0.85) 0%,
-    transparent 100%
-  );
-  z-index: 1;
-}
-
-.filmGrainOverlay {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
-  background-size: 3px 3px;
-  opacity: 0.7;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Billboard Content */
-.billboardContent {
-  position: relative;
-  z-index: 10;
-  max-width: 680px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.backBrowseBtn {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 9999px;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(245, 245, 247, 0.85);
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.backBrowseBtn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #ffffff;
-  transform: translateX(-3px);
-}
-
-/* Auteur Brand Lockup */
-.auteurBrandLockup {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-family: var(--font-body);
-}
-
-.directorName {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #ffffff;
-}
-
-.lockupDivider {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.directorArchiveLabel {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.lockupBadge {
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  padding: 0.15rem 0.45rem;
-  border-radius: 4px;
-}
-
-.billboardTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-  color: #ffffff;
-  margin: 0;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
-  text-wrap: balance;
-}
-
-.billboardMetaBar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.cutBadge {
-  font-family: var(--font-body);
-  font-size: 0.71875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.26);
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
-}
-
-.metaYear,
-.metaDuration {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: rgba(245, 245, 247, 0.75);
-}
-
-.metaDivider {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.28);
-}
-
-.formatBadge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.15rem 0.45rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 4px;
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.billboardSynopsis {
-  font-size: clamp(0.96875rem, 1.1vw, 1.1rem);
-  line-height: 1.65;
-  color: rgba(245, 245, 247, 0.85);
-  margin: 0;
-  font-weight: 400;
-  max-width: 620px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-}
-
-.billboardActions {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding-top: 0.5rem;
-}
-
-.playPrimaryBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.6rem;
-  background: #ffffff;
-  color: #07080b;
-  border: none;
-  border-radius: 6px;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.playPrimaryBtn:hover {
-  background: rgba(255, 255, 255, 0.85);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.4);
-}
-
-.playPrimaryBtn:active {
-  transform: translateY(0);
-}
-
-.specsSecondaryBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.75rem 1.4rem;
-  background: rgba(109, 109, 110, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.specsSecondaryBtn:hover {
-  background: rgba(109, 109, 110, 0.7);
-  border-color: rgba(255, 255, 255, 0.45);
-  transform: translateY(-2px);
-}
-
-.specsSecondaryBtn:active {
-  transform: translateY(0);
-}
-
-.circleActionBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(42, 42, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.2s ease;
-}
-
-.circleActionBtn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #ffffff;
-  transform: scale(1.08);
-}
-
-.circleActionBtn:active {
-  transform: scale(1);
-}
-
-/* Right Billboard Edge */
-.billboardRightEdge {
-  position: absolute;
-  right: clamp(1.5rem, 4vw, 3.5rem);
-  bottom: clamp(3rem, 6vh, 5rem);
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  z-index: 10;
-}
-
-.scopeBadge {
-  padding: 0.35rem 0.75rem;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-}
-
-.archivalMasterTag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.35rem 0.65rem;
-  background: rgba(14, 16, 22, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 4px;
-  font-size: 0.71875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #ffffff;
-  backdrop-filter: blur(8px);
-}
-
-/* =========================================================================
-   2. NETFLIX TABS NAVIGATION BAR
-   ========================================================================= */
-.tabsNav {
+/* ─── Top Navigation Bar ──────────────────────────────────────────────────── */
+.topNav {
   position: sticky;
   top: 0;
-  width: 100%;
-  background: rgba(7, 8, 11, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 40;
-  padding: 0 clamp(1.5rem, 5vw, 4.5rem);
-}
-
-.tabsWrapper {
-  max-width: var(--container-max, 1400px);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.tabsWrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.tabItem {
-  position: relative;
-  padding: 1.25rem 0;
-  background: none;
-  border: none;
-  color: rgba(245, 245, 247, 0.6);
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.2s ease;
-}
-
-.tabItem:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.tabActive {
-  color: #ffffff;
-}
-
-.tabActive::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: #ffffff;
-  border-radius: 3px 3px 0 0;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
-}
-
-/* =========================================================================
-   3. MAIN HUB CONTAINER & SECTIONS
-   ========================================================================= */
-.hubContainer {
-  width: 100%;
-  max-width: var(--container-max, 1400px);
-  margin: 0 auto;
-  padding: 3rem clamp(1.5rem, 5vw, 4.5rem) 6rem;
-}
-
-.tabSection {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.sectionHeadingRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 1.5rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.tabTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0 0 0.35rem;
-  letter-spacing: -0.02em;
-}
-
-.tabSubtitle {
-  font-size: 0.9375rem;
-  color: rgba(245, 245, 247, 0.65);
-  margin: 0;
-  max-width: 650px;
-  line-height: 1.5;
-}
-
-.episodesTotalBadge {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.06);
-  padding: 0.35rem 0.75rem;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  white-space: nowrap;
-}
-
-/* =========================================================================
-   TAB 1: NETFLIX EPISODES / SCENES LIST
-   ========================================================================= */
-.episodesList {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.episodeCard {
-  display: grid;
-  grid-template-columns: 48px 240px 1fr;
-  gap: 1.5rem;
-  align-items: center;
-  padding: 1.25rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.episodeCard:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.episodeIndexBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.episodeNumber {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.episodeCard:hover .episodeNumber {
-  color: #ffffff;
-}
-
-.episodeThumbWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 6px;
-  overflow: hidden;
-  background: #000000;
-}
-
-.episodeImg {
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.episodeCard:hover .episodeImg {
-  transform: scale(1.05);
-}
-
-.thumbHoverOverlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.episodeCard:hover .thumbHoverOverlay {
-  opacity: 1;
-}
-
-.playIconCircle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px solid #ffffff;
-}
-
-.durationPill {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  padding: 0.15rem 0.45rem;
-  background: rgba(0, 0, 0, 0.85);
-  border-radius: 3px;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: #ffffff;
-  pointer-events: none;
-}
-
-.episodeInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.episodeTitleRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.episodeTitle {
-  font-family: var(--font-heading);
-  font-size: 1.0625rem;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0;
-}
-
-.episodeDurationRight {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
-  white-space: nowrap;
-}
-
-.episodeDescription {
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: rgba(245, 245, 247, 0.75);
-  margin: 0;
-}
-
-/* =========================================================================
-   TAB 2: TECHNICAL SPECS GRID
-   ========================================================================= */
-.specsCardsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.25rem;
-}
-
-.specCard {
-  display: flex;
-  gap: 1.25rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 8px;
-  transition: all 0.25s ease;
-}
-
-.specCard:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
-}
-
-.specIconBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  flex-shrink: 0;
-}
-
-.specContent {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.specLabel {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.specValue {
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0 0 0.25rem;
-}
-
-.specNote {
-  font-size: 0.84375rem;
-  line-height: 1.5;
-  color: rgba(245, 245, 247, 0.65);
-  margin: 0;
-}
-
-/* =========================================================================
-   TAB 3: MORE LIKE THIS (Netflix Cards Grid)
-   ========================================================================= */
-.similarGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.similarCard {
-  background: #181818; /* Netflix dark card surface */
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.similarCard:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9);
-}
-
-.similarThumbWrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000000;
-}
-
-.similarImg {
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.similarCard:hover .similarImg {
-  transform: scale(1.05);
-}
-
-.similarOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(24, 24, 24, 1) 0%, transparent 60%);
-}
-
-.matchScoreSmall {
-  position: absolute;
-  top: 0.65rem;
-  left: 0.65rem;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #46d369;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 0.15rem 0.45rem;
-  border-radius: 3px;
-  backdrop-filter: blur(6px);
-}
-
-.similarDurationBadge {
-  position: absolute;
-  bottom: 0.65rem;
-  right: 0.65rem;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 0.15rem 0.45rem;
-  border-radius: 3px;
-}
-
-.similarBody {
-  padding: 1rem 1.25rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  flex: 1;
-}
-
-.similarMetaRow {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.similarCategory {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.similarMaturity {
-  padding: 0.05rem 0.3rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  font-size: 0.625rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-  border-radius: 2px;
-}
-
-.similarYear {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.similarTitle {
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0;
-}
-
-.similarDesc {
-  font-size: 0.84375rem;
-  line-height: 1.5;
-  color: rgba(245, 245, 247, 0.7);
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.similarBottomRow {
-  margin-top: auto;
-  padding-top: 0.6rem;
-}
-
-.viewStudyAction {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #ffffff;
-  opacity: 0.85;
-  transition: opacity 0.2s ease;
-}
-
-.similarCard:hover .viewStudyAction {
-  opacity: 1;
-}
-
-/* =========================================================================
-   TAB 4: ABOUT THIS PROJECT DETAILS & BOOKING
-   ========================================================================= */
-.detailsGrid {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 2rem;
-  align-items: start;
-}
-
-.detailsMetaCard {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.detailsRow {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-}
-
-.detailLabel {
-  width: 170px;
-  flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 500;
-}
-
-.detailVal {
-  color: #ffffff;
-  font-weight: 450;
-}
-
-.detailsBookCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  padding: 2rem;
-}
-
-.bookCardInner {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.bookBadge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.3rem 0.65rem;
-  border-radius: 4px;
-  align-self: flex-start;
-}
-
-.bookTitle {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 1.35;
-  margin: 0;
-}
-
-.bookText {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: rgba(245, 245, 247, 0.7);
-  margin: 0;
-}
-
-.inquireBookBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.875rem 1.4rem;
-  background: #ffffff;
-  color: #07080b;
-  border: none;
-  border-radius: 6px;
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.2);
-}
-
-.inquireBookBtn:hover {
-  background: #e2e4e9;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.35);
-}
-
-/* =========================================================================
-   4. FULLSCREEN CINEMA PLAYER LIGHTBOX (Netflix Style)
-   ========================================================================= */
-.cinemaBackdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 50;
+  background: rgba(17, 17, 19, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 0;
 }
 
-.cinemaPlayerCard {
-  position: relative;
-  width: 94vw;
-  max-width: 1240px;
-  height: 84vh;
-  background: #050507;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  overflow: hidden;
+.topNavInner {
+  max-width: 1540px;
+  width: 94%;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95);
-}
-
-.cinemaHeader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 2rem;
-  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
-  z-index: 20;
+  gap: 16px;
 }
 
-.playerMeta {
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #a1a1aa;
+  font-size: 13.5px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.backLink:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(74, 222, 128, 0.3);
+  transform: translateX(-2px);
+}
+
+.topNavRight {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 10px;
 }
 
-.playerLogo {
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #ffffff;
-  padding: 0.25rem 0.6rem;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 4px;
-}
-
-.playerTitle {
-  font-size: 1rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.cinemaCloseBtn {
-  display: flex;
+.shareBtn {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #18181b;
+  color: #d4d4d8;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.cinemaCloseBtn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.1);
+.shareBtn:hover {
+  border-color: rgba(74, 222, 128, 0.3);
+  color: #ffffff;
+  background: #27272a;
 }
 
-.playerStage {
-  position: relative;
-  flex: 1;
-  width: 100%;
-  background: #000000;
+.shareBtn.copied {
+  border-color: #16a34a;
+  color: #4ade80;
+  background: rgba(22, 163, 74, 0.12);
 }
 
-.playerImg {
-  object-fit: contain;
+.resumeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  background: #18181b;
+  color: #f4f4f5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-.playerVignette {
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+.resumeBtn:hover {
+  background: #27272a;
+  border-color: rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+  transform: translateY(-1px);
+}
+
+/* ─── Main Transition Card Wrapper ────────────────────────────────────────── */
+.mainCardWrapper {
+  margin-top: 24px;
+  background: #18181b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  animation: bentoMaxExpand 0.44s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.mainCardWrapper.isExiting {
+  animation: bentoMaxCollapse 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   pointer-events: none;
 }
 
-.centerPlayPrompt {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  color: #ffffff;
+@keyframes bentoMaxExpand {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+    filter: blur(8px);
+  }
+  45% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes bentoMaxCollapse {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+    filter: blur(6px);
+  }
+}
+
+/* ─── Obsidian Chrome Window Titlebar ──────────────────────────────────────── */
+.obsidianWindowBar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: all 0.25s ease;
-  z-index: 10;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background: #141416;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 16px;
 }
 
-.centerPlayPrompt:hover {
-  transform: translate(-50%, -50%) scale(1.15);
-  background: rgba(0, 0, 0, 0.85);
-  border-color: #ffffff;
+.obsidianDots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
 }
 
-/* Netflix Bottom Transport Bar */
-.transportBar {
+.obsidianDot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dotRed {
+  background: #ff5f56;
+  border: 1px solid #e0443e;
+}
+
+.dotYellow {
+  background: #ffbd2e;
+  border: 1px solid #dea123;
+}
+
+.dotGreen {
+  background: #27c93f;
+  border: 1px solid #1aab29;
+}
+
+.obsidianTabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.obsidianTab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #18181b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 650;
+  color: #f4f4f5;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.obsidianTab.active {
+  background: #202024;
+  border-color: rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+}
+
+.obsidianTabIcon {
+  color: #4ade80;
+}
+
+.obsidianWindowVault {
+  font-size: 11px;
+  font-weight: 600;
+  color: #71717a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  white-space: nowrap;
+}
+
+/* ─── Hero Section ────────────────────────────────────────────────────────── */
+.heroSection {
+  padding: 38px 40px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  animation: maxChildReveal 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
+}
+
+.eyebrowPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(22, 163, 74, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  color: #4ade80;
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.projectTitle {
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 850;
+  color: #f4f4f5;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.projectSubtitle {
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: #a1a1aa;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 0 28px;
+}
+
+/* 5-Column Meta Grid */
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  padding: 18px 22px;
+  background: #202024;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metaLabel {
+  font-size: 10.5px;
+  font-weight: 750;
+  color: #71717a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.metaValue {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #f4f4f5;
+}
+
+.metaValueHighlight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 750;
+  color: #4ade80;
+}
+
+.metaIcon {
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+/* Tech Tags Row */
+.techTagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.techTag {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(22, 163, 74, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  color: #4ade80;
+  font-size: 11.5px;
+  font-weight: 650;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ─── Main Visual Section (16:9) ──────────────────────────────────────────── */
+.mainVisualSection {
+  padding: 30px 40px 10px;
+  animation: maxChildReveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+.mainVisualCard {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #09090b;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.mainVisualImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.visualCaptionBar {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1rem 2rem 1.5rem;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  padding: 12px 20px;
+  background: linear-gradient(to top, rgba(9, 9, 11, 0.94) 0%, rgba(9, 9, 11, 0.3) 70%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: #a1a1aa;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ─── Content Sections & 2-Column Grids ───────────────────────────────────── */
+.contentSection {
+  padding: 30px 40px;
+  animation: maxChildReveal 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.columnCard {
+  background: #202024;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  z-index: 20;
+  gap: 12px;
+  transition: border-color 0.2s ease;
 }
 
-.progressTrack {
-  position: relative;
-  width: 100%;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 3px;
-  cursor: pointer;
-  transition: height 0.15s ease;
+.columnCard:hover {
+  border-color: rgba(74, 222, 128, 0.25);
 }
 
-.progressTrack:hover {
-  height: 8px;
+.sectionBadge {
+  font-size: 10.5px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  color: #4ade80;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-.progressBarFill {
-  height: 100%;
-  background: #e50914; /* Netflix red scrubber bar */
-  border-radius: 3px;
-  position: relative;
+.columnTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #f4f4f5;
+  letter-spacing: -0.02em;
+  margin: 0;
 }
 
-.transportControlsRow {
+.columnText {
+  font-size: 14px;
+  color: #a1a1aa;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ─── Personal Contribution Section ───────────────────────────────────────── */
+.contributionSection {
+  padding: 0 40px 10px;
+}
+
+.contributionCard {
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.06) 0%, rgba(24, 24, 27, 0.8) 100%);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 10px;
+  padding: 26px 28px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.controlsLeft,
-.controlsRight {
+.sectionHeading {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f4f4f5;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.leadText {
+  font-size: 13.5px;
+  color: #71717a;
+  margin: 0;
+}
+
+.contributionBox {
+  margin-top: 4px;
+}
+
+.contributionText {
+  font-size: 14.5px;
+  color: #e4e4e7;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ─── System Architecture (4 Columns) ─────────────────────────────────────── */
+.sectionDesc {
+  font-size: 14px;
+  color: #a1a1aa;
+  margin: 6px 0 20px;
+}
+
+.archGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.archCard {
+  background: #202024;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 20px;
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s ease;
 }
 
-.transportIconBtn {
+.archCard:hover {
+  border-color: rgba(74, 222, 128, 0.25);
+  background: #242428;
+}
+
+.archIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: rgba(22, 163, 74, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  color: #4ade80;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 0.25rem;
-  opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.transportIconBtn:hover {
-  opacity: 1;
-  transform: scale(1.15);
+.archTitle {
+  font-size: 14px;
+  font-weight: 750;
+  color: #f4f4f5;
+  margin: 0;
 }
 
-.timecodeDisplay {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+.archList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.cinemaBadgeHD {
-  font-size: 0.75rem;
+.archList li {
+  font-size: 12.5px;
+  color: #a1a1aa;
+  position: relative;
+  padding-left: 14px;
+}
+
+.archList li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4ade80;
+}
+
+/* ─── Product Evidence Screenshots Gallery ────────────────────────────────── */
+.screenshotsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.screenshotCard {
+  background: #202024;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.screenshotImgWrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #09090b;
+}
+
+.screenshotImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shotTag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(17, 17, 19, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #4ade80;
+  font-size: 10.5px;
   font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.shotCaption {
+  padding: 14px 16px;
+  font-size: 12.5px;
+  color: #a1a1aa;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── Key Technical Decisions (3 Columns) ─────────────────────────────────── */
+.decisionsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.decisionCard {
+  background: #202024;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.decisionNum {
+  font-size: 11px;
+  font-weight: 750;
+  color: #4ade80;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.decisionTitle {
+  font-size: 14.5px;
+  font-weight: 750;
+  color: #f4f4f5;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.decisionRationale {
+  font-size: 13px;
+  color: #a1a1aa;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── Results & Outcomes ──────────────────────────────────────────────────── */
+.resultsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resultsList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #e4e4e7;
+  line-height: 1.5;
+}
+
+.checkIcon {
+  color: #4ade80;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ─── Next Project Section ────────────────────────────────────────────────── */
+.nextProjectSection {
+  padding: 10px 40px 36px;
+}
+
+.nextCard {
+  background: #202024;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 24px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: all 0.2s ease;
+}
+
+.nextCard:hover {
+  border-color: rgba(74, 222, 128, 0.3);
+  background: #242428;
+}
+
+.nextLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nextEyebrow {
+  font-size: 10.5px;
+  font-weight: 750;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.75);
-  padding: 0.2rem 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  color: #4ade80;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* =========================================================================
-   RESPONSIVE DESIGN
-   ========================================================================= */
-@media (max-width: 960px) {
-  .episodeCard {
-    grid-template-columns: 36px 180px 1fr;
-    gap: 1rem;
-  }
+.nextTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #f4f4f5;
+  margin: 0;
+}
 
-  .detailsGrid {
-    grid-template-columns: 1fr;
-  }
+.nextCat {
+  font-size: 13px;
+  color: #a1a1aa;
+  margin: 0;
+}
 
-  .billboardRightEdge {
-    display: none;
+.nextBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #18181b;
+  color: #f4f4f5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+}
+
+.nextBtn:hover {
+  background: #27272a;
+  border-color: rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+  transform: translateX(2px);
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────────────── */
+.footer {
+  margin-top: 40px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footerName {
+  font-size: 14px;
+  font-weight: 750;
+  color: #f4f4f5;
+  margin: 0;
+}
+
+.footerRole {
+  font-size: 12.5px;
+  color: #71717a;
+  margin: 2px 0 0;
+}
+
+.footerLinks {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footerLink {
+  font-size: 13px;
+  color: #a1a1aa;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footerLink:hover {
+  color: #4ade80;
+}
+
+@keyframes maxChildReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 640px) {
-  .billboardSection {
-    height: auto;
-    min-height: 520px;
-    padding-top: 6rem;
-    padding-bottom: 2.5rem;
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .metaGrid {
+    grid-template-columns: repeat(3, 1fr);
   }
-
-  .billboardTitle {
-    font-size: 2.25rem;
+  .archGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  .billboardActions {
-    flex-wrap: wrap;
-  }
-
-  .episodeCard {
+  .decisionsGrid {
     grid-template-columns: 1fr;
   }
+}
 
-  .episodeIndexBox {
-    display: none;
+@media (max-width: 768px) {
+  .heroSection, .mainVisualSection, .contentSection, .contributionSection, .nextProjectSection {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-
-  .tabsWrapper {
-    gap: 1.5rem;
+  .metaGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .twoColumnGrid {
+    grid-template-columns: 1fr;
+  }
+  .archGrid {
+    grid-template-columns: 1fr;
+  }
+  .nextCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nextBtn {
+    width: 100%;
+    justify-content: center;
   }
 }

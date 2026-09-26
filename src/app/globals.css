@@ -36,8 +36,8 @@
   --palette-ice-white: #E1ECFB;
   --palette-ice-bright: #D4E7FD;
 
-  /* Theme mappings — 35mm Film Noir Obsidian + Specular Titanium Monochrome */
-  --color-bg: #07080b;
+  /* Theme mappings — Obsidian Dark Basalt with Electric Blue Accent */
+  --color-bg: #111113;
   --color-surface: #0e1017;
   --color-surface-card: #12141c;
   --color-surface-hover: #1b1e2a;
@@ -179,3 +179,29 @@ img, video, audio {
   border-radius: 6px;
   transition: outline 0.15s ease, box-shadow 0.15s ease;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GLOBAL LIQUID ROUTE TRANSITION ANIMATIONS (TEMPLATE.TSX)
+═══════════════════════════════════════════════════════════════════════════ */
+.page-transition-enter {
+  animation: pageLiquidReveal 0.44s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+  width: 100%;
+}
+
+@keyframes pageLiquidReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.975);
+    filter: blur(8px);
+  }
+  45% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+

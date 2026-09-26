@@ -1,0 +1,491 @@
+/* ═══════════════════════════════════════════════════════════════
+   EDITORIAL LANDING PAGE (Non-Scrollable Single Viewport 100vh)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Full Viewport Non-Scrollable Container */
+.landing-viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #06080c;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── TOP SECTION (73-75% OF VIEWPORT) ────────────────────────── */
+.landing-top-section {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Header Bar */
+.landing-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 32px 44px 0 44px;
+  pointer-events: none;
+}
+
+/* Brand Name & Cyan Dash */
+.landing-brand-wrap {
+  pointer-events: auto;
+}
+
+.landing-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.landing-brand-text {
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.landing-brand-dash {
+  width: 32px;
+  height: 3.5px;
+  background-color: #00B4D8;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.6);
+}
+
+/* Floating Center Pill Navigation */
+.landing-nav-pill {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 26px;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(10, 18, 30, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 9999px;
+  padding: 5px 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.landing-nav-pill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: 9999px;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.landing-nav-pill-item:hover {
+  color: #ffffff;
+}
+
+.landing-nav-pill-item.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.landing-nav-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #00B4D8;
+  box-shadow: 0 0 8px #00B4D8;
+}
+
+/* Right Editorial Label Stack */
+.landing-editorial-col {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 12px;
+}
+
+.landing-editorial-stack {
+  display: flex;
+  flex-direction: column;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.55;
+  color: #38bdf8;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.landing-editorial-line {
+  width: 26px;
+  height: 2px;
+  background-color: #38bdf8;
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+/* ─── 3-COLUMN SPLIT GRID ─────────────────────────────────────── */
+.landing-top-grid {
+  display: grid;
+  grid-template-columns: 43fr 34fr 23fr;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Left Hero Text Column */
+.landing-col-left {
+  position: relative;
+  background: radial-gradient(circle at 0% 45%, rgba(0, 180, 216, 0.09) 0%, transparent 65%), #06080c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 48px 40px 54px;
+  z-index: 10;
+}
+
+.landing-hero-content {
+  max-width: 520px;
+  width: 100%;
+}
+
+.landing-eyebrow {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  color: #8a96a3;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.landing-headline {
+  font-size: clamp(38px, 4.2vw, 62px);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+}
+
+.landing-highlight {
+  color: #00B4D8;
+}
+
+.landing-subtext {
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.62;
+  color: #94a3b8;
+  margin: 0 0 36px 0;
+  max-width: 430px;
+}
+
+/* Action: Download Resume Only */
+.landing-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.landing-btn-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  background-color: #00B4D8;
+  color: #02121e;
+  font-size: 15px;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 24px rgba(0, 180, 216, 0.35);
+}
+
+.landing-btn-resume:hover {
+  background-color: #00c6ee;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(0, 180, 216, 0.5);
+  color: #010b12;
+}
+
+/* Middle Column: Developer Visual */
+.landing-col-middle {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.landing-col-middle .landing-img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.landing-middle-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 8, 12, 0.6) 0%,
+    transparent 15%,
+    transparent 85%,
+    rgba(6, 8, 12, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* Right Column: Architectural Visual */
+.landing-col-right {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.landing-col-right .landing-img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.landing-right-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 25%
+  );
+  pointer-events: none;
+}
+
+/* ─── BOTTOM SECTION: 3 BENTO NAV CARDS (27% HEIGHT) ──────────── */
+.landing-bottom-section {
+  height: 27vh;
+  min-height: 150px;
+  max-height: 230px;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: 33.333% 35.333% 31.334%;
+  background-color: #000000;
+}
+
+.landing-bento-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 36px;
+  text-decoration: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.landing-bento-card:last-child {
+  border-right: none;
+}
+
+.landing-card-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.landing-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.landing-bento-card:hover .landing-card-img {
+  transform: scale(1.07);
+}
+
+.landing-card-img-sky {
+  object-position: center bottom;
+}
+
+/* Card Overlays */
+.landing-card-overlay {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s ease;
+}
+
+.landing-card-overlay-dark {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.75) 60%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+}
+
+.landing-card-overlay-sky {
+  background: linear-gradient(
+    180deg,
+    rgba(3, 40, 90, 0.1) 0%,
+    rgba(3, 30, 80, 0.4) 60%,
+    rgba(2, 20, 50, 0.85) 100%
+  );
+}
+
+.landing-card-overlay-emerald {
+  background: linear-gradient(
+    180deg,
+    rgba(1, 20, 14, 0.25) 0%,
+    rgba(1, 20, 14, 0.7) 60%,
+    rgba(1, 15, 10, 0.92) 100%
+  );
+}
+
+.landing-bento-card:hover .landing-card-overlay {
+  opacity: 0.85;
+}
+
+/* Card Content Typography */
+.landing-card-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.landing-card-num {
+  font-size: 13px;
+  font-weight: 550;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.06em;
+}
+
+.landing-card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.landing-card-title {
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 750;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.025em;
+  transition: color 0.2s ease;
+}
+
+.landing-card-arrow {
+  color: #ffffff;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.landing-bento-card:hover .landing-card-title {
+  color: #ffffff;
+}
+
+.landing-bento-card:hover .landing-card-arrow {
+  transform: translateX(8px);
+  color: #00B4D8;
+}
+
+/* ─── RESPONSIVE BREAKPOINTS (TABLETS & MOBILE FALLBACK) ──────── */
+@media (max-width: 1024px) {
+  .landing-header {
+    padding: 24px 28px 0;
+  }
+  .landing-col-left {
+    padding: 70px 32px 30px;
+  }
+  .landing-top-grid {
+    grid-template-columns: 50fr 50fr;
+  }
+  .landing-col-right {
+    display: none;
+  }
+  .landing-editorial-col {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-viewport {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    overflow-y: auto;
+  }
+  .landing-header {
+    position: relative;
+    padding: 20px 20px 0;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .landing-nav-pill {
+    position: relative;
+    left: auto;
+    transform: none;
+    top: auto;
+  }
+  .landing-top-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .landing-col-left {
+    padding: 30px 24px;
+    text-align: center;
+  }
+  .landing-hero-content {
+    margin: 0 auto;
+  }
+  .landing-subtext {
+    margin: 0 auto 28px;
+  }
+  .landing-actions {
+    justify-content: center;
+  }
+  .landing-col-middle {
+    height: 380px;
+  }
+  .landing-bottom-section {
+    height: auto;
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+  .landing-bento-card {
+    height: 140px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

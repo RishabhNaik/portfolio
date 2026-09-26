@@ -39,9 +39,9 @@ export default function NotFound() {
             <Home size={18} />
             <span>Go to Homepage</span>
           </Link>
-          <Link href="/blog" className="btn btn-outline">
+          <Link href="/projects" className="btn btn-outline">
             <ArrowLeft size={18} />
-            <span>Explore Blog</span>
+            <span>Explore Projects</span>
           </Link>
         </div>
       </div>

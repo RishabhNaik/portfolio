@@ -25,8 +25,8 @@ export interface BlogPost {
 
 export const siteConfig = {
   title: "Rishabh Naik",
-  tagline: "Engineering Student & Digital Artist",
-  description: "Hey, My name is Rishabh. Engineering student, VKSSF scholar, and aspiring Digital artist creating his own dimensions of art.",
+  tagline: "Full-Stack Software Developer",
+  description: "Full-Stack Software Developer building production web applications, backend systems, and autonomous AI agents with NestJS, React, PostgreSQL, and AWS.",
   baseUrl: "https://rishabhsnaik.netlify.app",
   logo: "/images/logo.png",
   logoWidth: 32,
@@ -55,7 +55,7 @@ export const homepageData = {
   banner: {
     title: "Welcome",
     content: "Hey, My name is Rishabh.",
-    subtext: "Engineering student at Sambhram Institute of Technology, Bangalore. VKSSF scholar and mentee at Sushiksha programme. An aspiring Digital artist creating his own dimensions of art.",
+    subtext: "Full-Stack Software Developer building production web applications, backend services, and autonomous AI systems at Anantaloop with NestJS, React, PostgreSQL, and AWS.",
     image: "/images/Rishabh.jpeg",
     button: {
       enable: true,
@@ -117,7 +117,7 @@ export const homepageData = {
 
 export const contactData = {
   title: "Contact",
-  description: "Get in touch for collaborations, artwork commissions, or web projects.",
+  description: "Get in touch for full-stack software development, engineering roles, and production systems.",
   office: {
     mobile: "6360908381",
     email: "rishabhnaik37@gmail.com",
@@ -148,12 +148,6 @@ export const contactData = {
       icon: "twitter",
       para: "Twitter account & updates",
       hrf: "https://twitter.com/rishabhnaik37",
-    },
-    {
-      social: "Cosmix",
-      icon: "palette",
-      para: "All the art and music content on one page",
-      hrf: "https://www.instagram.com/cosmi.x_x/",
     },
   ],
   formEndpoint: "https://forms.un-static.com/forms/2b45146ba992bdbff422d804e18bc3310eb06215",
