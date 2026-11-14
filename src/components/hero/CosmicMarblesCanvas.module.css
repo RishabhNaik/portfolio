@@ -1,0 +1,85 @@
+.canvasWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: auto;
+  cursor: default;
+}
+
+/* Layer 1: Soft Blurred Starry Cosmic Space Backdrop */
+.starSpaceCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  /* Blurred slightly as requested by user */
+  filter: blur(2px) brightness(1.15);
+  -webkit-filter: blur(2px) brightness(1.15);
+  transform: scale(1.03); /* prevent blur edge clipping */
+  z-index: 1;
+}
+
+/* Layer 2: Sharp Crisp 3D Colored Marbles */
+.marblesCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+  cursor: crosshair;
+}
+
+/* Interactive Floating Tooltip for Active Marble */
+.marbleTooltip {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  transform: translate(-50%, -130%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  background: rgba(1, 20, 43, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(81, 171, 219, 0.4);
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.7),
+    0 0 18px rgba(25, 121, 209, 0.3);
+  white-space: nowrap;
+  animation: tooltipFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.tooltipTitle {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.tooltipMeta {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  color: var(--palette-cerulean-primary);
+  letter-spacing: 0.04em;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -115%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -130%) scale(1);
+  }
+}

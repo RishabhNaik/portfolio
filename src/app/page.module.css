@@ -1,150 +1,180 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
+/* =========================================================
+   LANDING PAGE — PALETTE GRADIENT BACKGROUND
+   Using custom swatches: #133865 | #B4C9D4 | #51ABDB | #1979D1
+   ========================================================= */
 
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
-.main {
-  display: flex;
-  flex: 1;
+.landingWrapper {
+  position: relative;
   width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #01142b;
+  /* Multi-stage vertical color flow using user custom palette */
+  background-image: linear-gradient(
+    180deg,
+    #01142b 0%,
+    #051831 12%,
+    #081c27 28%,
+    #06345e 44%,
+    #133865 58%,
+    #0f5698 72%,
+    #081c27 88%,
+    #01142b 100%
+  );
+  color: var(--color-text-primary);
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
+/* Atmospheric Layered Ambient Glow Meshes */
+.ambientGradientLayer {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+/* Ambient Bloom 1: Top-Right Vibrant Cobalt (#1979D1) */
+.glowCobaltTop {
+  position: absolute;
+  top: -6vw;
+  right: -8vw;
+  width: 55vw;
+  height: 55vw;
+  max-width: 820px;
+  max-height: 820px;
+  border-radius: 50%;
+  background: var(
+    --hero-accent-gradient,
+    radial-gradient(
+      circle at center,
+      rgba(25, 121, 209, 0.32) 0%,
+      rgba(25, 121, 209, 0.12) 45%,
+      transparent 72%
+    )
+  );
+  filter: blur(80px);
+  -webkit-filter: blur(80px);
+  animation: floatDrift1 22s ease-in-out infinite alternate;
+  will-change: transform, background;
+  transition: background 1.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+/* Ambient Bloom 2: Intro/Center Sapphire Navy (#133865) */
+.glowNavyMid {
+  position: absolute;
+  top: 22%;
+  left: -10vw;
+  width: 70vw;
+  height: 50vw;
+  max-width: 960px;
+  max-height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(19, 56, 101, 0.45) 0%,
+    rgba(6, 52, 94, 0.22) 50%,
+    transparent 75%
+  );
+  filter: blur(100px);
+  -webkit-filter: blur(100px);
+  animation: floatDrift2 26s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+/* Ambient Bloom 3: Selected Works Vivid Cerulean (#51ABDB) */
+.glowCeruleanWorks {
+  position: absolute;
+  top: 48%;
+  right: -5vw;
+  width: 50vw;
+  height: 50vw;
+  max-width: 750px;
+  max-height: 750px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(81, 171, 219, 0.24) 0%,
+    rgba(63, 136, 175, 0.12) 45%,
+    transparent 70%
+  );
+  filter: blur(85px);
+  -webkit-filter: blur(85px);
+  animation: floatDrift1 28s ease-in-out infinite alternate-reverse;
+  will-change: transform;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
+/* Ambient Bloom 4: BTS Deep Oceanic Abyssal (#2C6380 / #0F5698) */
+.glowOceanBTS {
+  position: absolute;
+  top: 72%;
+  left: 5vw;
+  width: 65vw;
+  height: 55vw;
+  max-width: 900px;
+  max-height: 760px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(15, 86, 152, 0.28) 0%,
+    rgba(44, 99, 128, 0.16) 45%,
+    transparent 74%
+  );
+  filter: blur(95px);
+  -webkit-filter: blur(95px);
+  animation: floatDrift2 30s ease-in-out infinite alternate;
+  will-change: transform;
+}
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+/* Ambient Bloom 5: Footer Mist Reflection (#B4C9D4) */
+.glowMistBottom {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 50vw;
+  height: 35vw;
+  max-width: 700px;
+  max-height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(180, 201, 212, 0.09) 0%,
+    rgba(81, 171, 219, 0.05) 50%,
+    transparent 70%
+  );
+  filter: blur(90px);
+  -webkit-filter: blur(90px);
+}
+
+/* Delicate subtle ambient motion */
+@keyframes floatDrift1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-30px, 40px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(25px, -30px, 0) scale(0.96);
   }
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+@keyframes floatDrift2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
   }
-
-  .intro {
-    gap: 16px;
+  50% {
+    transform: translate3d(40px, -35px, 0) scale(1.06);
   }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+  100% {
+    transform: translate3d(-20px, 25px, 0) scale(0.95);
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
-}
-
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
+/* Foreground Content Flow */
+.contentLayer {
+  position: relative;
+  z-index: 5;
+  width: 100%;
 }

@@ -1,0 +1,95 @@
+.prismContainer {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.prismContainer.grabbing {
+  cursor: grabbing;
+}
+
+.tesseractCanvas {
+  position: relative;
+  z-index: 5;
+  width: 240px;
+  height: 240px;
+  display: block;
+  filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.25));
+  transition: filter 0.3s ease;
+}
+
+.prismContainer:hover .tesseractCanvas {
+  filter: drop-shadow(0 0 24px rgba(0, 229, 255, 0.45));
+}
+
+/* Sapphire radial ambient aura */
+.ambientAura {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 140, 255, 0.28) 0%,
+    rgba(0, 70, 220, 0.2) 38%,
+    rgba(10, 20, 90, 0.12) 62%,
+    transparent 78%
+  );
+  filter: blur(26px);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.85;
+}
+
+.auraActive {
+  opacity: 1;
+  transform: scale(1.12);
+  background: radial-gradient(
+    circle,
+    rgba(0, 229, 255, 0.35) 0%,
+    rgba(0, 110, 255, 0.28) 40%,
+    rgba(15, 35, 140, 0.18) 65%,
+    transparent 82%
+  );
+}
+
+/* Dynamic Floor Sapphire Caustic Reflection */
+.floorCaustic {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  width: 200px;
+  height: 65px;
+  margin-left: -100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 215, 255, 0.45) 0%,
+    rgba(0, 102, 255, 0.28) 42%,
+    rgba(8, 25, 110, 0.14) 65%,
+    transparent 80%
+  );
+  filter: blur(14px);
+  pointer-events: none;
+  z-index: 2;
+  transform: rotateX(65deg);
+  animation: floorPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes floorPulse {
+  0% {
+    transform: rotateX(65deg) scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotateX(65deg) scale(1.1);
+    opacity: 0.95;
+  }
+}

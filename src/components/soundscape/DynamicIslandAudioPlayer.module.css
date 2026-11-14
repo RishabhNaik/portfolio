@@ -1,0 +1,432 @@
+/* Dynamic Island Soundscape FAB & Expanded Island */
+
+.islandWrapper {
+  position: fixed;
+  bottom: 26px;
+  right: 28px;
+  z-index: 9999;
+  user-select: none;
+  font-family: var(--font-figtree), var(--font-body);
+}
+
+/* =========================================================
+   01 — COLLAPSED MINI FAB PILL
+   ========================================================= */
+.miniIsland {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 6px 14px 6px 16px;
+  background: rgba(14, 14, 18, 0.84);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 166, 255, 0.18);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.miniIsland:hover {
+  background: rgba(20, 20, 26, 0.92);
+  border-color: rgba(0, 166, 255, 0.45);
+  box-shadow: 0 20px 42px -6px rgba(0, 0, 0, 0.9),
+    0 0 28px rgba(0, 166, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.miniIslandPlaying {
+  border-color: rgba(0, 166, 255, 0.5);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(0, 166, 255, 0.3);
+}
+
+/* Left: Equalizer Bars */
+.miniBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+}
+
+.bar {
+  width: 3px;
+  background: #00a6ff;
+  border-radius: 2px;
+  transition: height 0.12s ease;
+  min-height: 3px;
+}
+
+.barStatic {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Middle: Title & Nature indicator */
+.miniContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.miniLabel {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #00a6ff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.miniTrackTitle {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #ffffff;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right: Play/Pause Button */
+.miniPlayBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.miniPlayBtn:hover {
+  background: #00a6ff;
+  border-color: #00a6ff;
+  color: #000000;
+  transform: scale(1.08);
+}
+
+.miniPlayBtnActive {
+  background: rgba(0, 166, 255, 0.2);
+  border-color: #00a6ff;
+  color: #00a6ff;
+}
+
+/* =========================================================
+   02 — EXPANDED DYNAMIC ISLAND
+   ========================================================= */
+.expandedIsland {
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  background: rgba(13, 13, 17, 0.92);
+  backdrop-filter: blur(36px);
+  -webkit-backdrop-filter: blur(36px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 28px 64px -12px rgba(0, 0, 0, 0.92),
+    0 0 36px rgba(0, 166, 255, 0.22);
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transform-origin: bottom right;
+  animation: springExpand 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes springExpand {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Top Dynamic Island Notch & Status Row */
+.islandTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notchBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.65625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 247, 0.85);
+}
+
+.collapseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collapseBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+/* Soundscape Info Card */
+.trackHeroRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.soundDiscWrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00a6ff 0%, #004488 60%, #09090b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(0, 166, 255, 0.45);
+  flex-shrink: 0;
+}
+
+.soundDiscSpinning {
+  animation: spinDisc 8s linear infinite;
+}
+
+@keyframes spinDisc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.trackMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.trackCategory {
+  font-family: var(--font-body);
+  font-size: 0.65625rem;
+  color: #00a6ff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.trackTitle {
+  font-size: 0.96875rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.trackSubtitle {
+  font-size: 0.71875rem;
+  color: rgba(245, 245, 247, 0.55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+/* Visualizer Spectrum Wave */
+.spectrumWave {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4px;
+  height: 24px;
+  padding: 0 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.spectrumBar {
+  flex: 1;
+  background: linear-gradient(180deg, #00a6ff 0%, rgba(0, 166, 255, 0.4) 100%);
+  border-radius: 2px;
+  min-height: 3px;
+  transition: height 0.08s ease;
+}
+
+/* Soundscape Preset Switcher Pills */
+.presetPills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.presetBtn {
+  flex: 1;
+  padding: 5px 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.71875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.presetBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.presetBtnActive {
+  color: #ffffff;
+  background: rgba(0, 166, 255, 0.2);
+  border-color: rgba(0, 166, 255, 0.55);
+  box-shadow: 0 0 12px rgba(0, 166, 255, 0.25);
+}
+
+/* Playback & Volume Controls */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 2px;
+}
+
+.playbackCluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.mainPlayBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #00a6ff;
+  border: none;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 166, 255, 0.45);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mainPlayBtn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 22px rgba(0, 166, 255, 0.6);
+}
+
+.volumeCluster {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  max-width: 140px;
+}
+
+.volumeBtn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.volumeBtn:hover {
+  color: #ffffff;
+}
+
+.volumeSlider {
+  flex: 1;
+  height: 4px;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volumeSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 6px;
+  height: 14px;
+  border-radius: 2px;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(0, 166, 255, 0.6);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.volumeSlider::-webkit-slider-thumb:hover {
+  transform: scaleY(1.15);
+  background: #00a6ff;
+}
+
+@media (max-width: 480px) {
+  .islandWrapper {
+    bottom: 16px;
+    right: 16px;
+  }
+}

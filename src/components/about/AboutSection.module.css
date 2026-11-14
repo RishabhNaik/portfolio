@@ -1,0 +1,327 @@
+/* =========================================================
+   ABOUT SECTION (HOMEPAGE)
+   Tight 2-Column Layout: Left (Heading & 2 Bio Paragraphs)
+   Right (Photo Collage + Download Resume Button Directly Below)
+   Zero Wasted Space, Cinematic Monochrome Titanium Aesthetic
+   ========================================================= */
+
+.aboutSection {
+  position: relative;
+  width: 100%;
+  padding: clamp(3.5rem, 6vh, 5.5rem) 0;
+  background: transparent;
+  color: var(--color-text-primary);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-pad-x);
+}
+
+/* 2-Column Balanced Grid: Left (Heading & Bio) | Right (Images & Resume) */
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+/* Left Column: Heading & 2 Bio Paragraphs */
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.eyebrowRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrowBadge {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+}
+
+.eyebrowSub {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 247, 0.6);
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.paragraphsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.storyParagraph {
+  font-size: clamp(0.96875rem, 1.08vw, 1.0625rem);
+  line-height: 1.76;
+  color: rgba(245, 245, 247, 0.82);
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+.focusPillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.focusPill {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(245, 245, 247, 0.7);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+}
+
+/* Right Column: Visual Photo Collage + Resume Button Below */
+.visualColumn {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.collageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.75rem;
+  width: 100%;
+}
+
+.mainPhotoCard {
+  grid-column: span 2;
+  position: relative;
+  aspect-ratio: 16 / 9.5;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #08080a;
+  box-shadow: 
+    0 20px 45px -12px rgba(0, 0, 0, 0.85),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.mainPhotoCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.subPhotoCardLeft,
+.subPhotoCardRight {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #08080a;
+  box-shadow: 
+    0 14px 32px -10px rgba(0, 0, 0, 0.75),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.subPhotoCardLeft:hover,
+.subPhotoCardRight:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.imageInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.collageImg {
+  object-fit: cover;
+  object-position: center 25%;
+  filter: grayscale(100%) contrast(108%);
+  transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mainPhotoCard:hover .collageImg,
+.subPhotoCardLeft:hover .collageImg,
+.subPhotoCardRight:hover .collageImg {
+  filter: grayscale(100%) contrast(114%) brightness(1.04);
+  transform: scale(1.025);
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.52) 100%
+  );
+  pointer-events: none;
+}
+
+.photoMetaBadge {
+  position: absolute;
+  bottom: 0.65rem;
+  left: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  background: rgba(0, 0, 0, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Resume Download Action Directly Below the Image Collage */
+.resumeActionWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.downloadResumeBtn {
+  flex: 1.35;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.25rem;
+  background: #ffffff;
+  color: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.18);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.downloadResumeBtn:hover {
+  background: #f0f0f2;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+  color: #000000;
+}
+
+.downloadResumeBtn:active {
+  transform: translateY(0);
+}
+
+.inquireBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(245, 245, 247, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.inquireBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.inquireBtn:active {
+  transform: translateY(0);
+}
+
+.btnIcon {
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .visualColumn {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .aboutSection {
+    padding: 3rem 0;
+  }
+
+  .resumeActionWrapper {
+    flex-direction: column;
+  }
+
+  .downloadResumeBtn,
+  .inquireBtn {
+    width: 100%;
+  }
+
+  .collageGrid {
+    grid-gap: 0.5rem;
+  }
+}

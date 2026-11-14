@@ -1,69 +1,66 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
+import { PROJECTS_DATA } from "@/data/projects";
+import { BTSShot } from "@/types/project";
+import { Hero } from "@/components/hero/Hero";
+import { Intro } from "@/components/intro/Intro";
+import { PrintedField } from "@/components/printed-field/PrintedField";
+import { AboutSection } from "@/components/about/AboutSection";
+import { BTSSection } from "@/components/bts/BTSSection";
+import { Footer } from "@/components/footer/Footer";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const [activeShot, setActiveShot] = useState<BTSShot>(PROJECTS_DATA[0]);
+
+  const handleSelectShot = (shot: BTSShot) => {
+    setActiveShot(shot);
+  };
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className={styles.landingWrapper}>
+      {/* Cinematic Ambient Gradient Layer with Custom Palette Swatches */}
+      <div className={styles.ambientGradientLayer} aria-hidden="true">
+        <div className={styles.glowCobaltTop} />
+        <div className={styles.glowNavyMid} />
+        <div className={styles.glowCeruleanWorks} />
+        <div className={styles.glowOceanBTS} />
+        <div className={styles.glowMistBottom} />
+      </div>
+
+      {/* Foreground Sections Layer */}
+      <div className={styles.contentLayer}>
+        {/* 01 — HERO with Featured Visual */}
+        <Hero
+          projects={PROJECTS_DATA}
+          activeShot={activeShot}
+          onSelectShot={handleSelectShot}
         />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        {/* 02 — INTRO with deep ocean lighting & media preview */}
+        <Intro />
+
+        {/* 03 — FREE-MOVING PRINTED IMAGE FIELD */}
+        <PrintedField
+          projects={PROJECTS_DATA}
+          activeShot={activeShot}
+          onSelectShot={handleSelectShot}
+        />
+
+        {/* 04 — ABOUT SECTION (Profile, Philosophy & Core Capabilities) */}
+        <AboutSection />
+
+        {/* 05 — BTS MEDIA + DETAILS + IPOD CONTROLLER */}
+        <BTSSection
+          projects={PROJECTS_DATA}
+          activeShot={activeShot}
+          onSelectShot={handleSelectShot}
+        />
+
+        {/* 05 — FOOTER */}
+        <Footer />
+      </div>
+    </main>
   );
 }

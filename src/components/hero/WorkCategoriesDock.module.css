@@ -1,0 +1,317 @@
+/* =========================================================
+   WORK CATEGORIES DOCK
+   Docked on the hero section below
+   Showcases the 5 creative disciplines/categories Rishabh works in
+   ========================================================= */
+
+.dockContainer {
+  position: absolute;
+  bottom: clamp(1rem, 2.5vh, 2rem);
+  left: 0;
+  right: 0;
+  z-index: 25;
+  width: 100%;
+  padding: 0 clamp(1.25rem, 3.5vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.2vh, 12px);
+  pointer-events: none;
+}
+
+.dockHeader {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: auto;
+  padding: 0 4px;
+}
+
+.labelGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sectionBadge {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--hero-accent-primary, #51abdb);
+  transition: color 1.4s ease;
+}
+
+.sectionDivider {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+}
+
+.actionHint {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.categoriesGrid {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(10px, 1.4vw, 18px);
+  pointer-events: auto;
+  position: relative;
+  padding-bottom: 12px; /* Space for the shelf */
+}
+
+/* The Shelf Ledge */
+.categoriesGrid::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -2%;
+  right: -2%;
+  height: 3px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.15) 20%, 
+    rgba(255, 255, 255, 0.4) 50%, 
+    rgba(255, 255, 255, 0.15) 80%, 
+    transparent 100%
+  );
+  border-radius: 3px;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.9), 
+    0 15px 35px rgba(0, 0, 0, 0.6),
+    0 -1px 4px var(--hero-accent-glow, rgba(81, 171, 219, 0.2));
+  z-index: -1;
+}
+
+/* Category Card */
+.categoryCard {
+  position: relative;
+  z-index: 2; /* Sit above the shelf */
+  aspect-ratio: 16 / 10;
+  min-height: 135px;
+  background: #0b1928;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.75), 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Make the cards look like they are physically resting on the shelf */
+  transform-origin: bottom center;
+}
+
+.categoryCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 24px 45px -8px rgba(0, 0, 0, 0.9), 0 0 16px rgba(81, 171, 219, 0.2);
+}
+
+.imageContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #071320;
+}
+
+.cardImage {
+  object-fit: cover;
+  opacity: 0.65;
+  filter: grayscale(20%);
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.categoryCard:hover .cardImage {
+  opacity: 0.92;
+  filter: grayscale(0%);
+  transform: scale(1.06);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(1, 20, 43, 0.2) 0%,
+    rgba(1, 20, 43, 0.55) 50%,
+    rgba(1, 20, 43, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+/* Category Content */
+.cardContent {
+  position: relative;
+  z-index: 8;
+  padding: clamp(10px, 1.2vw, 15px);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  pointer-events: none;
+}
+
+.cardTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.categoryNum {
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--hero-accent-primary, #51abdb);
+  transition: color 1.4s ease;
+}
+
+.projectCount {
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(0.9375rem, 1.1vw, 1.125rem);
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.cardSubtitle {
+  font-size: clamp(0.6875rem, 0.78vw, 0.78125rem);
+  line-height: 1.35;
+  color: rgba(245, 245, 247, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Active State */
+.cardActive {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px -8px rgba(0, 0, 0, 0.9), 0 0 22px var(--hero-accent-glow, rgba(81, 171, 219, 0.3));
+  border-color: var(--hero-accent-primary, rgba(81, 171, 219, 0.8));
+}
+
+.cardActive .cardImage {
+  opacity: 0.95;
+  filter: grayscale(0%);
+}
+
+.activeGlowFrame {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--hero-accent-primary, rgba(81, 171, 219, 0.85));
+  border-radius: 6px;
+  pointer-events: none;
+  box-shadow: 
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.85),
+    inset 0 0 12px var(--hero-accent-glow, rgba(81, 171, 219, 0.15)),
+    0 0 14px var(--hero-accent-glow, rgba(81, 171, 219, 0.3));
+  z-index: 9;
+  transition: border-color 1.4s ease, box-shadow 1.4s ease;
+}
+
+/* Explore Link */
+.exploreBtn {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  z-index: 15;
+  background: rgba(1, 20, 43, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  pointer-events: auto;
+}
+
+.exploreBtn:hover {
+  background: rgba(81, 171, 219, 0.35);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .categoriesGrid {
+    gap: 10px;
+  }
+
+  .categoryCard {
+    aspect-ratio: 16 / 11;
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 840px) {
+  .dockContainer {
+    padding: 0 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .dockContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .categoriesGrid {
+    display: flex;
+    width: max-content;
+    gap: 12px;
+  }
+
+  .categoryCard {
+    width: 220px;
+    flex-shrink: 0;
+    aspect-ratio: 16 / 10;
+    min-height: 130px;
+  }
+}
