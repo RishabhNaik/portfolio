@@ -397,6 +397,9 @@ export const Hero: React.FC<HeroProps> = ({
             onMouseLeave={() => setIsStatementHovered(false)}
           >
             <h1 className={styles.statementHeading}>
+              <span className="sr-only">
+                Rishabh Naik — Video Editor, Content Creator &amp; Creative Technologist.{" "}
+              </span>
               {/* Line 1 Row (unified on desktop, rhythmically split on mobile) */}
               <span className={styles.headlineLine1Row}>
                 <span className={styles.headlinePart1}>{currentStatement.part1}</span>{" "}

@@ -1,0 +1,41 @@
+# Rishabh Naik
+
+> Multidisciplinary creative, video editor, and creative technologist based in Bengaluru, India. Specializing in rhythmic video editing, cinematic post-production, human-centered UI/UX systems, and creative technology.
+
+Rishabh Naik combines technical precision with cinematic vision across video editing, motion design, interactive web platforms, and design systems. His work focuses on pacing, intentional sound design, dynamic cuts, and experiences that feel native and tactile.
+
+## Professional Summary
+- **Name**: Rishabh Naik (also known as rawrish)
+- **Role**: Video Editor, Content Creator, Creative Director, Full-Stack Software Engineer
+- **Location**: Bengaluru, Karnataka, India
+- **Core Competencies**: Rhythm-driven video editing, DaVinci Resolve color grading, short-form viral reels, narrative storytelling, typography & design systems, Next.js / TypeScript engineering, GLSL shaders.
+- **Website**: https://rishabhsnaik.netlify.app
+- **Portfolio Domain**: https://rishabhnaik.com
+- **Contact Email**: rishabhnaik37@gmail.com
+- **Phone**: +91-6360908381
+
+## Core Disciplines & Services
+- **Cinematic Post-Production & Video Editing**: Dynamic cuts, narrative pacing, DaVinci Resolve Studio color grading, sound design and foley, high-retention short-form video for Instagram Reels and YouTube.
+- **UI/UX & Design Systems**: Modular grid systems, typographical hierarchies, tactile design components, Swiss-inspired design, interactive prototypes in Figma.
+- **Creative Technology & Software**: Next.js (App Router), TypeScript, React, Tailwind CSS, GLSL shaders, Python backend APIs, autonomous AI agent workflows.
+- **Photography & Visual Direction**: 35mm film photography, digital street photography, architectural symmetry, and directional lighting.
+
+## Toolkit & Technologies
+- **Post-Production**: DaVinci Resolve Studio, Adobe Premiere Pro, After Effects, Final Cut Pro, Sound Foley & Mixing.
+- **Design & Layout**: Figma, Adobe InDesign, Illustrator, Photoshop, Color Grading LUTs.
+- **Development**: Next.js, React 19, TypeScript, JavaScript (ES6+), Node.js, Python, CSS Modules, Turbopack, Git.
+
+## Featured Projects & Case Studies
+- [Velocity // Kinetic Cut](https://rishabhsnaik.netlify.app/projects/velocity-kinetic-cut): High-energy commercial cut featuring rhythmic match-cuts, customized sound design, and frame-accurate editorial pacing.
+- [Kroma Editorial System](https://rishabhsnaik.netlify.app/projects/kroma-brand-system): Swiss-inspired typographic identity, modular physical print grid, and custom publication system for an architectural quarterly.
+- [Aura OS // Spatial Wearable](https://rishabhsnaik.netlify.app/projects/aura-os-wearable): Ambient spatial operating system concept exploring gestural micro-interactions and low-cognitive-friction wearable typography.
+- [After Hours (02:14 AM)](https://rishabhsnaik.netlify.app/projects/after-hours-cinematography): Low-light cinematographic short film exploring urban isolation, sodium vapor lighting, and 35mm anamorphic textures.
+- [Nexus Studio Engine](https://rishabhsnaik.netlify.app/projects/nexus-studio-engine): Real-time collaborative audio-visual asset management and timeline sequencing workbench.
+- [Prismatica // Spectral Light](https://rishabhsnaik.netlify.app/projects/prismatica-spectral-art): Interactive digital art series exploring optical chromatic dispersion, caustic refractions, and procedural shaders.
+
+## Site Navigation
+- [Home](https://rishabhsnaik.netlify.app/): Interactive hero carousel with dynamic statements, cosmic nebula background, and photography showcase.
+- [About](https://rishabhsnaik.netlify.app/about): Full background story, creative philosophy, core disciplines, and complete toolkit.
+- [Projects](https://rishabhsnaik.netlify.app/projects): Complete portfolio catalog with category filtering across video editing, design, software, and cinematography.
+- [Gallery](https://rishabhsnaik.netlify.app/gallery): Curated photography gallery with interactive full-screen lightbox.
+- [Full LLM Context](https://rishabhsnaik.netlify.app/llms-full.txt): Comprehensive technical context and expanded project documentation for AI models.

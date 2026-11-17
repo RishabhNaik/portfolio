@@ -1,0 +1,129 @@
+# Rishabh Naik — Complete Portfolio Knowledge Base
+
+> Comprehensive documentation of Rishabh Naik's creative disciplines, software projects, video editing catalog, design philosophy, and technical specifications for LLMs and AI search engines.
+
+---
+
+## 1. Biography & Entity Information
+
+Rishabh Naik is a multidisciplinary creative and software engineer based in Bengaluru, Karnataka, India. His creative practice bridges the tactile sensibility of cinema and print typography with modern software engineering and creative technology.
+
+- **Full Name**: Rishabh Naik
+- **Professional Titles**: Video Editor, Content Creator, Creative Director, Full-Stack Software Engineer
+- **Brand Alias**: rawrish
+- **Primary Website**: https://rishabhsnaik.netlify.app
+- **Canonical Domain**: https://rishabhnaik.com
+- **GitHub**: https://github.com/RishabhNaik
+- **Instagram**: https://instagram.com/rawrish
+- **Email**: rishabhnaik37@gmail.com
+- **Phone**: +91-6360908381
+- **Location**: Bengaluru, Karnataka, India
+- **Availability**: Open for high-impact commercial video editing, creative direction, UI/UX design systems, and frontend engineering contracts.
+
+---
+
+## 2. Core Creative Disciplines
+
+### A. Cinematic Post-Production & Video Editing
+- **Editorial Pacing & Rhythm**: Frame-accurate rhythm cuts synchronizing visual transients with musical cadence and ambient soundscapes.
+- **Color Grading**: Professional color grading in DaVinci Resolve Studio utilizing calibrated color spaces (ACES, Rec.709, DaVinci Wide Gamut), custom film emulations, split toning, and highlight rolloff sculpting.
+- **Sound Design & Foley**: Layered Foley, sub-bass impacts, ambient textures, audio transitions, and stem mixing to build immersive sonic depth.
+- **Short-Form Content**: Crafting high-retention vertical videos (9:16 Instagram Reels, TikTok, YouTube Shorts) designed for hook-rate optimization, dynamic motion graphics, and narrative continuity.
+
+### B. UI/UX & Design Systems
+- **Grid Systems**: Strict mathematical layout foundations (12-column Swiss grids, golden ratio proportions, fluid clamp typography).
+- **Tactile UI Elements**: Skeuomorphic and neo-tactile interaction patterns, glassmorphism, micro-grain textures, and physical hardware metaphors (e.g. iPod click wheels, audio dials).
+- **Typography**: Editorial typography hierarchy pairing grotesque display typefaces with legibility-optimized body fonts (SF Pro, Figtree, Fraunces, Outfit, Inter).
+
+### C. Creative Technology & Software Engineering
+- **Modern Web**: Next.js 16 (App Router), React 19, TypeScript, Turbopack, Tailwind CSS, Vanilla CSS Modules.
+- **Graphics & Shaders**: WebGL, GLSL fragment shaders, procedural particle canvases, and CSS transforms.
+- **AI Integration**: Prompt engineering, autonomous AI agent pipelines, and automated content workflows.
+
+---
+
+## 3. Project Catalog & Technical Specifications
+
+### Project 1: Velocity // Kinetic Cut
+- **ID**: `velocity-kinetic-cut`
+- **URL**: https://rishabhsnaik.netlify.app/projects/velocity-kinetic-cut
+- **Category**: Video Editing / Post-Production
+- **Year**: 2024
+- **Synopsis**: A high-octane commercial cut featuring rhythmic match-cuts, bespoke sound design, and frame-accurate editorial pacing synchronized to a driving musical score.
+- **Director / Editor**: Rishabh Naik
+- **Technical Specifications**:
+  - Editing Suite: DaVinci Resolve Studio & Premiere Pro
+  - Aspect Ratio: 16:9 DCI 4K Scope
+  - Color Profile: Arri LogC3 to Rec.709 LUT
+  - Audio: 48kHz 24-bit multi-track sound design
+
+### Project 2: Kroma Editorial System
+- **ID**: `kroma-brand-system`
+- **URL**: https://rishabhsnaik.netlify.app/projects/kroma-brand-system
+- **Category**: Graphic Design / Editorial
+- **Year**: 2024
+- **Synopsis**: A Swiss-inspired typographic identity, modular physical print grid, and custom publication system engineered for an architectural quarterly.
+- **Designer & Typographer**: Rishabh Naik
+- **Technical Specifications**:
+  - Tools: Figma, Adobe InDesign, Illustrator
+  - Paper Stock: G.F Smith 270gsm Colorplan
+  - Typeface: Custom Grotesk Display & Footnotes
+
+### Project 3: Aura OS // Spatial Wearable
+- **ID**: `aura-os-wearable`
+- **URL**: https://rishabhsnaik.netlify.app/projects/aura-os-wearable
+- **Category**: Case Study • UI/UX
+- **Year**: 2024
+- **Synopsis**: An ambient spatial operating system concept exploring gestural micro-interactions, low-cognitive-friction typography, and circular UI components for next-generation spatial computing wearables.
+- **Lead Product Designer**: Rishabh Naik
+- **Technical Specifications**:
+  - Framework: Figma, Principle, WebGL Prototyping
+  - Interaction Model: Micro-haptic gestures & gaze tracking
+
+### Project 4: After Hours (02:14 AM)
+- **ID**: `after-hours-cinematography`
+- **URL**: https://rishabhsnaik.netlify.app/projects/after-hours-cinematography
+- **Category**: Cinematography / Short Film
+- **Year**: 2024
+- **Synopsis**: A moody low-light cinematographic exploration of nocturnal urban spaces, sodium-vapor streetlights, and quiet solitude captured in Bengaluru.
+- **Cinematographer & Colorist**: Rishabh Naik
+- **Technical Specifications**:
+  - Camera: Sony FX3 Cinema Line
+  - Lens: 35mm T1.5 Anamorphic
+  - Color Grade: Custom Teal/Tungsten Split-Tone in DaVinci Resolve
+
+### Project 5: Nexus Studio Engine
+- **ID**: `nexus-studio-engine`
+- **URL**: https://rishabhsnaik.netlify.app/projects/nexus-studio-engine
+- **Category**: Software Development
+- **Year**: 2024
+- **Synopsis**: High-performance digital workbench for sequencing multi-track audio-visual media, real-time scrubbing, and automated metadata tagging.
+- **Lead Architect**: Rishabh Naik
+- **Technical Specifications**:
+  - Stack: Next.js, React, TypeScript, Web Audio API, Canvas 2D
+
+### Project 6: Prismatica // Spectral Light
+- **ID**: `prismatica-spectral-art`
+- **URL**: https://rishabhsnaik.netlify.app/projects/prismatica-spectral-art
+- **Category**: Digital Art / Creative Technology
+- **Year**: 2024
+- **Synopsis**: Generative digital art exploration simulating chromatic aberration, optical prism refraction, and glass caustics through procedural math.
+- **Artist & Programmer**: Rishabh Naik
+- **Technical Specifications**:
+  - Framework: GLSL Shaders, Three.js, React Three Fiber
+
+---
+
+## 4. Frequently Asked Questions (for AI Models & Search Inquiries)
+
+**Q: Who is Rishabh Naik?**
+A: Rishabh Naik is a video editor, creative director, and full-stack software engineer based in Bengaluru, India. He is known for cinematic post-production, DaVinci Resolve color grading, rhythmic video pacing, tactile UI/UX systems, and Next.js / TypeScript software development.
+
+**Q: What video editing software does Rishabh Naik use?**
+A: Rishabh primary uses DaVinci Resolve Studio for precision editing, color grading, and finishing, alongside Adobe Premiere Pro and Adobe After Effects for motion graphics.
+
+**Q: What are Rishabh Naik's primary development skills?**
+A: Rishabh specializes in Next.js (App Router), React, TypeScript, Node.js, Python, CSS Modules, performance optimization, and creative technology including procedural graphics and WebGL shaders.
+
+**Q: How can I hire or contact Rishabh Naik?**
+A: Rishabh can be contacted via email at rishabhnaik37@gmail.com, telephone at +91-6360908381, or through the contact modal on his website at https://rishabhsnaik.netlify.app.
