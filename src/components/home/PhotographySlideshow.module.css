@@ -1,0 +1,378 @@
+/* =========================================================
+   EDGE-TO-EDGE ALTERNATING HORIZONTAL SLIDESHOW
+   - Wide edge-to-edge layout matching the hero carousel
+   - Alternating split: Even = Text Left / Image Right; Odd = Image Left / Text Right
+   - Horizontal cinematic image frames (16:10 aspect ratio)
+   - Zero pills, clean typography, with dedicated bottom navigation
+   ========================================================= */
+
+.slideshowSection {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: clamp(1rem, 1.8vw, 2rem) clamp(2.5rem, 5vw, 6.5rem) clamp(3rem, 4vw, 4rem);
+  background-color: transparent;
+  user-select: none;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sectionVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slidesContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+  min-height: clamp(380px, 34vw, 520px);
+  display: grid;
+  align-items: center;
+}
+
+/* =========================================================
+   SLIDE ROW (CROSSFADE OVERLAY WITH ALTERNATING COLUMNS)
+   ========================================================= */
+.slideRow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 6rem);
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.99);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.85s;
+  pointer-events: none;
+}
+
+.slideActive {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* =========================================================
+   ALTERNATING LAYOUT: NORMAL VS REVERSED
+   ========================================================= */
+/* Even Slide: Text Left (1fr), Image Right (1.25fr) */
+.normal {
+  grid-template-columns: 1fr 1.25fr;
+}
+
+.normal .textColumn {
+  order: 1;
+}
+
+.normal .imageColumn {
+  order: 2;
+}
+
+/* Odd Slide: Image Left (1.25fr), Text Right (1fr) */
+.reversed {
+  grid-template-columns: 1.25fr 1fr;
+}
+
+.reversed .imageColumn {
+  order: 1;
+}
+
+.reversed .textColumn {
+  order: 2;
+}
+
+/* =========================================================
+   TEXT COLUMN (EDITORIAL, CLEAN HIERARCHY, NO PILLS)
+   ========================================================= */
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 640px;
+}
+
+.studyIndex {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.slideTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 2.85rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+}
+
+.titleLink {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.titleLink:hover {
+  color: #38bdf8;
+}
+
+.leadText {
+  font-family: var(--font-sans);
+  font-size: clamp(0.98rem, 1.1vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.detailDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0.35rem 0;
+}
+
+.noteText {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.projectActionRow {
+  padding-top: 0.25rem;
+}
+
+.viewProjectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: all 0.25s ease;
+}
+
+.viewProjectLink:hover {
+  color: #38bdf8;
+}
+
+.viewProjectLink:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+.arrowIcon {
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+
+/* =========================================================
+   HORIZONTAL IMAGE COLUMN (16:10 CINEMATIC FRAME)
+   ========================================================= */
+.imageColumn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.imageLink {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.imageLink:hover .horizontalImage {
+  transform: scale(1.04);
+}
+
+.imageLink:hover .horizontalImageFrame {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.85),
+              0 0 50px rgba(56, 189, 248, 0.12);
+}
+
+.horizontalImageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: clamp(340px, 32vw, 480px);
+  border-radius: 22px;
+  overflow: hidden;
+  background-color: #091a36;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75),
+              0 0 40px rgba(2, 8, 20, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.horizontalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slideActive .horizontalImage {
+  transform: scale(1);
+}
+
+.frameGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 65%,
+    rgba(2, 8, 20, 0.35) 85%,
+    rgba(2, 8, 20, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
+/* =========================================================
+   CAROUSEL NAVIGATION CONTROLS ROW (ABOVE FOOTER)
+   ========================================================= */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1720px;
+  margin: clamp(1.75rem, 2.5vw, 2.5rem) auto 0 auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.counterArea {
+  display: flex;
+  align-items: center;
+}
+
+.counterText {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.navigationControls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.navButton:active {
+  transform: scale(0.96);
+}
+
+/* =========================================================
+   RESPONSIVE: MOBILE & TABLETS (STACKED VERTICALLY)
+   ========================================================= */
+@media (max-width: 960px) {
+  .slidesContainer {
+    min-height: auto;
+    position: relative;
+    display: block;
+  }
+
+  .slideRow {
+    position: relative;
+    display: none;
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem;
+    height: auto;
+    inset: auto;
+  }
+
+  .slideActive {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .textColumn {
+    order: 1 !important;
+    max-width: 100%;
+    gap: 0.75rem;
+  }
+
+  .imageColumn {
+    order: 2 !important;
+  }
+
+  .horizontalImageFrame {
+    aspect-ratio: 16 / 10;
+    max-height: 380px;
+    border-radius: 18px;
+  }
+
+  .controlsRow {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .slideshowSection {
+    padding: 1.5rem 1.25rem 3rem;
+  }
+
+  .slideTitle {
+    font-size: 1.75rem;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+  }
+}

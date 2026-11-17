@@ -3,15 +3,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import {
   X,
-  Mail,
-  Phone,
   Copy,
   Check,
-  Send,
   ArrowUpRight,
   MessageSquare,
-  Clock,
-  MapPin,
+  Mail,
+  Phone,
 } from "lucide-react";
 import {
   OPEN_CONTACT_MODAL_EVENT,
@@ -20,7 +17,16 @@ import {
 import { cinematicAudioHaptics } from "@/utils/cinematicAudioHaptics";
 import styles from "./ContactModal.module.css";
 
-const InstagramIcon = ({ size = 18 }: { size?: number }) => (
+const DISCIPLINES = [
+  "Graphic Design",
+  "Video Editing",
+  "UI/UX Design",
+  "AI Agents",
+  "Digital Art",
+  "Software Development",
+];
+
+const InstagramIcon = ({ size = 16 }: { size?: number }) => (
   <svg
     width={size}
     height={size}
@@ -37,7 +43,7 @@ const InstagramIcon = ({ size = 18 }: { size?: number }) => (
   </svg>
 );
 
-const FacebookIcon = ({ size = 18 }: { size?: number }) => (
+const FacebookIcon = ({ size = 16 }: { size?: number }) => (
   <svg
     width={size}
     height={size}
@@ -53,42 +59,44 @@ const FacebookIcon = ({ size = 18 }: { size?: number }) => (
 );
 
 export const ContactModal: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
-  const [copiedPhone, setCopiedPhone] = useState<boolean>(false);
-
-  const open = useCallback(() => {
-    cinematicAudioHaptics.playCinematicWhoosh();
-    setIsOpen(true);
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const close = useCallback(() => {
     cinematicAudioHaptics.playSlateTick();
     setIsOpen(false);
   }, []);
 
-  // Listen for global modal open/close events & #contact hash
   useEffect(() => {
-    const handleOpen = () => open();
-    const handleClose = () => close();
+    const handleOpen = () => {
+      cinematicAudioHaptics.playTactileClick();
+      setIsOpen(true);
+    };
+    const handleClose = () => {
+      setIsOpen(false);
+    };
 
     window.addEventListener(OPEN_CONTACT_MODAL_EVENT, handleOpen);
     window.addEventListener(CLOSE_CONTACT_MODAL_EVENT, handleClose);
 
+    return () => {
+      window.removeEventListener(OPEN_CONTACT_MODAL_EVENT, handleOpen);
+      window.removeEventListener(CLOSE_CONTACT_MODAL_EVENT, handleClose);
+    };
+  }, []);
+
+  // Listen for hash #contact-modal
+  useEffect(() => {
     const checkHash = () => {
       if (window.location.hash === "#contact-modal") {
-        open();
+        setIsOpen(true);
       }
     };
     checkHash();
     window.addEventListener("hashchange", checkHash);
-
-    return () => {
-      window.removeEventListener(OPEN_CONTACT_MODAL_EVENT, handleOpen);
-      window.removeEventListener(CLOSE_CONTACT_MODAL_EVENT, handleClose);
-      window.removeEventListener("hashchange", checkHash);
-    };
-  }, [close, open]);
+    return () => window.removeEventListener("hashchange", checkHash);
+  }, []);
 
   // Lock body scroll and handle Escape key
   useEffect(() => {
@@ -108,7 +116,6 @@ export const ContactModal: React.FC = () => {
     };
   }, [isOpen, close]);
 
-  // Copy helpers
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText("rishabhnaik37@gmail.com");
@@ -143,125 +150,154 @@ export const ContactModal: React.FC = () => {
       aria-modal="true"
       aria-label="Contact Rishabh Naik"
     >
-      <div className={styles.modalCard}>
-        <div className={styles.ambientGlow} aria-hidden="true" />
-
-        {/* Modal Header */}
-        <div className={styles.modalHeader}>
-          <div className={styles.headerInfo}>
-            <div className={styles.eyebrowRow}>
-              <span className={styles.eyebrowBadge}>Direct Channel</span>
-              <span className={styles.eyebrowText}>No Forms · Direct Access</span>
-            </div>
-            <h2 className={styles.title}>Let’s make something real.</h2>
-            <p className={styles.subtitle}>
-              Direct communication lines for film directing, cinematography, analog 35mm optical work, and studio collaborations.
-            </p>
+      <div className={styles.modalWindow}>
+        {/* Top Bar */}
+        <div className={styles.topBar}>
+          <div className={styles.brandGroup}>
+            <span className={styles.brandTitle}>Rishabh Naik</span>
+            <span className={styles.brandDot}>·</span>
+            <span className={styles.brandSubtitle}>Direct Contact</span>
           </div>
 
           <button
             onClick={close}
-            className={styles.closeButton}
+            className={styles.closeBtn}
             aria-label="Close Contact Modal"
           >
-            <X size={20} />
+            <X size={18} />
           </button>
         </div>
 
-        {/* Direct Contact Cards Grid */}
-        <div className={styles.contactGrid}>
-          {/* Email Card */}
-          <div className={styles.contactCard}>
-            <div className={styles.cardTop}>
-              <div className={styles.cardLabelGroup}>
-                <div className={styles.cardIconBox}>
-                  <Mail size={16} />
-                </div>
-                <span className={styles.cardLabel}>Direct Inbox</span>
-              </div>
+        {/* Editorial Headline */}
+        <div className={styles.headlineBlock}>
+          <h2 className={styles.mainHeadline}>
+            Let’s create <br />
+            <span className={styles.highlightWord}>something memorable.</span>
+          </h2>
+          <p className={styles.subheadline}>
+            Open for commissioned work, directing, creative direction, and technical systems.
+          </p>
+        </div>
+
+        {/* Clean Typographic Channels */}
+        <div className={styles.channelsList}>
+          {/* Email Channel */}
+          <div className={styles.channelRow}>
+            <div className={styles.channelMeta}>
+              <span className={styles.channelLabel}>Inquiries</span>
             </div>
 
-            <div className={styles.cardValue}>rishabhnaik37@gmail.com</div>
-
-            <div className={styles.cardActions}>
+            <div className={styles.channelMain}>
               <a
                 href="mailto:rishabhnaik37@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Rishabh%20Naik"
-                className={styles.actionBtnPrimary}
+                className={styles.primaryLink}
                 onClick={() => cinematicAudioHaptics.playTactileClick()}
               >
-                <Send size={13} />
-                <span>Send Email</span>
+                <span className={styles.linkText}>rishabhnaik37@gmail.com</span>
+                <ArrowUpRight className={styles.arrowIcon} size={22} />
               </a>
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className={styles.actionBtnSecondary}
-                aria-label="Copy email address"
-              >
-                {copiedEmail ? <Check size={13} color="#30d158" /> : <Copy size={13} />}
-                <span>{copiedEmail ? "Copied" : "Copy"}</span>
-              </button>
-            </div>
-          </div>
 
-          {/* Phone / WhatsApp Card */}
-          <div className={styles.contactCard}>
-            <div className={styles.cardTop}>
-              <div className={styles.cardLabelGroup}>
-                <div className={styles.cardIconBox}>
-                  <Phone size={16} />
-                </div>
-                <span className={styles.cardLabel}>Phone &amp; WhatsApp</span>
+              <div className={styles.actionItems}>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className={styles.inlineAction}
+                  aria-label="Copy email address"
+                >
+                  {copiedEmail ? (
+                    <Check size={13} className={styles.successColor} />
+                  ) : (
+                    <Copy size={13} />
+                  )}
+                  <span>{copiedEmail ? "Copied" : "Copy email"}</span>
+                </button>
+
+                <span className={styles.actionSeparator}>/</span>
+
+                <a
+                  href="mailto:rishabhnaik37@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Rishabh%20Naik"
+                  className={styles.inlineAction}
+                >
+                  <Mail size={13} />
+                  <span>Open client</span>
+                </a>
               </div>
             </div>
+          </div>
 
-            <div className={styles.cardValue}>+91 6360908381</div>
+          {/* Direct Phone & WhatsApp Channel */}
+          <div className={styles.channelRow}>
+            <div className={styles.channelMeta}>
+              <span className={styles.channelLabel}>Direct</span>
+            </div>
 
-            <div className={styles.cardActions}>
-              <a
-                href="https://wa.me/916360908381"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.actionBtnWhatsApp}
-                onClick={() => cinematicAudioHaptics.playTactileClick()}
-              >
-                <MessageSquare size={13} />
-                <span>WhatsApp</span>
-              </a>
+            <div className={styles.channelMain}>
               <a
                 href="tel:+916360908381"
-                className={styles.actionBtnSecondary}
+                className={styles.primaryLink}
                 onClick={() => cinematicAudioHaptics.playTactileClick()}
               >
-                <span>Call</span>
+                <span className={styles.linkText}>+91 6360908381</span>
+                <ArrowUpRight className={styles.arrowIcon} size={22} />
               </a>
-              <button
-                type="button"
-                onClick={handleCopyPhone}
-                className={styles.actionBtnSecondary}
-                aria-label="Copy phone number"
-              >
-                {copiedPhone ? <Check size={13} color="#30d158" /> : <Copy size={13} />}
-                <span>{copiedPhone ? "Copied" : "Copy"}</span>
-              </button>
+
+              <div className={styles.actionItems}>
+                <a
+                  href="https://wa.me/916360908381"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.inlineAction} ${styles.whatsAppHighlight}`}
+                  onClick={() => cinematicAudioHaptics.playTactileClick()}
+                >
+                  <MessageSquare size={13} />
+                  <span>WhatsApp ↗</span>
+                </a>
+
+                <span className={styles.actionSeparator}>/</span>
+
+                <a
+                  href="tel:+916360908381"
+                  className={styles.inlineAction}
+                  onClick={() => cinematicAudioHaptics.playTactileClick()}
+                >
+                  <Phone size={13} />
+                  <span>Call</span>
+                </a>
+
+                <span className={styles.actionSeparator}>/</span>
+
+                <button
+                  type="button"
+                  onClick={handleCopyPhone}
+                  className={styles.inlineAction}
+                  aria-label="Copy phone number"
+                >
+                  {copiedPhone ? (
+                    <Check size={13} className={styles.successColor} />
+                  ) : (
+                    <Copy size={13} />
+                  )}
+                  <span>{copiedPhone ? "Copied" : "Copy"}</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Studio Location & Response Time Meta Strip */}
-        <div className={styles.infoStrip}>
-          <div className={styles.infoItem}>
-            <MapPin size={15} className={styles.infoIcon} />
-            <span>Bangalore, India — Available Worldwide</span>
-          </div>
-          <div className={styles.infoItem}>
-            <Clock size={15} className={styles.infoIcon} />
-            <span>Direct inbox monitored daily — Reply within 24 hours</span>
-          </div>
+        {/* Editorial Disciplines Strip (Homepage Mirror) */}
+        <div className={styles.disciplinesStrip}>
+          {DISCIPLINES.map((d, i) => (
+            <React.Fragment key={d}>
+              <span className={styles.disciplineName}>{d}</span>
+              {i < DISCIPLINES.length - 1 && (
+                <span className={styles.disciplineDot}>·</span>
+              )}
+            </React.Fragment>
+          ))}
         </div>
 
-        {/* Social Channels & Status Row */}
-        <div className={styles.socialRow}>
+        {/* Minimal Bottom Bar */}
+        <div className={styles.bottomBar}>
           <div className={styles.socialGroup}>
             <a
               href="https://instagram.com"
@@ -270,9 +306,9 @@ export const ContactModal: React.FC = () => {
               className={styles.socialLink}
               onClick={() => cinematicAudioHaptics.playSlateTick()}
             >
-              <InstagramIcon size={16} />
+              <InstagramIcon size={15} />
               <span>Instagram</span>
-              <ArrowUpRight size={13} />
+              <ArrowUpRight size={12} className={styles.tinyArrow} />
             </a>
 
             <a
@@ -282,18 +318,13 @@ export const ContactModal: React.FC = () => {
               className={styles.socialLink}
               onClick={() => cinematicAudioHaptics.playSlateTick()}
             >
-              <FacebookIcon size={16} />
+              <FacebookIcon size={15} />
               <span>Facebook</span>
-              <ArrowUpRight size={13} />
+              <ArrowUpRight size={12} className={styles.tinyArrow} />
             </a>
-          </div>
-
-          <div className={styles.availBadge}>
-            <span>Accepting 2025/2026 Productions</span>
           </div>
         </div>
       </div>
     </div>
   );
 };
-

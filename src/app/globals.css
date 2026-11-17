@@ -1,76 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap');
-
 @layer reset, base, components, utilities;
 
 :root {
   /* ========================================================
-     USER CUSTOM COLOR PALETTE
-     Primary Chips: #133865 | #B4C9D4 | #51ABDB | #1979D1
+     AUTHENTIC DEEP SAPPHIRE & MIDNIGHT BLUE LIFE THEME
+     - Sophisticated deep oceanic blue palette with organic texture
+     - Accents in rich sky/sapphire blue & cerulean
      ======================================================== */
-  --palette-navy-deep: #01142B;      /* Deepest midnight cobalt */
-  --palette-navy-night: #051831;     /* Midnight sapphire */
-  --palette-navy-ocean: #06345E;     /* Deep ocean navy */
-  --palette-navy-primary: #133865;   /* Core signature deep navy */
-  --palette-navy-mid: #0F5698;       /* Deep sapphire blue */
-  --palette-navy-soft: #235B9E;      /* Sapphire mid */
-  
-  --palette-cobalt-primary: #1979D1;  /* Core signature electric cobalt */
-  --palette-cobalt-bright: #347DD7;   /* Bright cobalt */
-  --palette-cobalt-vivid: #409BF8;    /* Vivid sky cobalt */
-  --palette-cobalt-soft: #67A1EB;     /* Soft cobalt */
-  
-  --palette-cerulean-abyss: #081C27;  /* Abyssal deep teal */
-  --palette-cerulean-slate: #193E52;  /* Slate abyss */
-  --palette-cerulean-deep: #2C6380;   /* Deep cerulean ocean */
-  --palette-cerulean-mid: #3F88AF;    /* Cerulean tide */
-  --palette-cerulean-primary: #51ABDB; /* Core signature cerulean */
-  --palette-cerulean-sky: #95CFF1;    /* Soft cerulean sky */
-  --palette-cerulean-ice: #DFF0FA;    /* Cerulean ice */
-  
-  --palette-mist-charcoal: #141A1D;
-  --palette-mist-slate: #4F5F67;
-  --palette-mist-steel: #8AA4B2;
-  --palette-mist-primary: #B4C9D4;    /* Core signature mist */
-  --palette-mist-light: #E7EDF1;
+  --bg-deep-blue: #040d1a;
+  --bg-blue-dark: #07152b;
+  --bg-blue-card: #0b1e3d;
 
-  --palette-ice-white: #E1ECFB;
-  --palette-ice-bright: #D4E7FD;
+  --accent-cyan: #38bdf8;
+  --accent-blue: #60a5fa;
+  --accent-sapphire: #2563eb;
 
-  /* Theme mappings — 35mm Film Noir Obsidian + Specular Titanium Monochrome */
-  --color-bg: #07080b;
-  --color-surface: #0e1017;
-  --color-surface-card: #12141c;
-  --color-surface-hover: #1b1e2a;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-bright: rgba(255, 255, 255, 0.28);
-  --color-text-primary: #f5f5f7;
-  --color-text-secondary: #c5c8d0;
-  --color-text-tertiary: #838895;
-  --color-accent: #ffffff;
-  --color-glow: rgba(255, 255, 255, 0.18);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.5);
 
-  /* Typography — Jukebox Pairing: Figtree (Geometric Sans) + Fraunces (Expressive Serif) */
-  --font-figtree: var(--font-figtree), 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-fraunces: var(--font-fraunces), 'Fraunces', Georgia, "Times New Roman", serif;
+  /* Authentic Apple SF Pro Font */
+  --font-sans: var(--font-sf-pro), -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-sf-pro), -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  --font-heading: var(--font-fraunces);
-  --font-display: var(--font-fraunces);
-  --font-serif: var(--font-fraunces);
-  --font-body: var(--font-figtree);
-  --font-sans: var(--font-figtree);
-
-  /* Spacing */
-  --container-max: 1400px;
-  --content-narrow: 760px;
-  --section-pad-y: clamp(4rem, 8vw, 7rem);
-  --section-pad-x: clamp(1.25rem, 5vw, 4rem);
-
-  /* Micro Transitions */
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --trans-fast: 160ms var(--ease-smooth);
-  --trans-normal: 280ms var(--ease-out-expo);
-  --trans-slow: 450ms var(--ease-out-expo);
+  --section-pad-x: clamp(1.5rem, 5vw, 4.5rem);
 }
 
 * {
@@ -80,102 +32,63 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
+  background-color: var(--bg-deep-blue);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis Buttery Smooth Momentum Scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  background-color: var(--color-bg);
-  font-family: var(--font-body);
-  line-height: 1.6;
+  background-color: var(--bg-deep-blue);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Typography elements — Fraunces for expressive editorial headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary);
-  line-height: 1.18;
-}
-
-p {
-  color: var(--color-text-secondary);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--trans-fast), opacity var(--trans-fast);
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: inherit;
-  outline: none;
-}
-
-/* Media Protection - Prevent Dragging */
-img, video, audio {
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--palette-navy-deep);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--palette-navy-primary);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--palette-cobalt-primary);
-}
-
-/* Subtle darkroom grain overlay */
+/* Tactile 35mm film grain organic texture overlay */
 .film-grain {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 9999;
-  opacity: 0.025;
+  z-index: 999;
+  opacity: 0.065;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
 }
 
-/* Accessible focus ring */
-:focus-visible {
-  outline: 2px solid var(--color-text-primary);
-  outline-offset: 4px;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* iPod Mobile Tab Selection Focus Indicator */
-[data-ipod-focused="true"] {
-  outline: 2.5px solid #00d2ff !important;
-  outline-offset: 4px !important;
-  box-shadow: 0 0 16px rgba(0, 210, 255, 0.8), inset 0 0 6px rgba(0, 210, 255, 0.3) !important;
-  border-radius: 6px;
-  transition: outline 0.15s ease, box-shadow 0.15s ease;
+button {
+  font-family: inherit;
 }

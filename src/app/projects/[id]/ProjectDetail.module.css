@@ -1,1200 +1,386 @@
-/* =========================================================
-   NETFLIX LANDING LAYOUT FOR PROJECT DETAILS
-   Full-Bleed Billboard Hero + Hub Tabs + Episode Cards + Cinema Player
-   Pure Noir, Obsidian Titanium Aesthetics, Zero Orange
-   ========================================================= */
-
-.projectDetailPage,
-.netflixPage {
-  background-color: #07080b;
-  color: #f5f5f7;
+.detailWrapper {
+  position: relative;
+  width: 100%;
   min-height: 100vh;
+  background-color: transparent;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow-x: hidden;
-  font-family: var(--font-body);
 }
 
-/* =========================================================================
-   1. FULL-BLEED BILLBOARD HERO (Netflix Style)
-   ========================================================================= */
-.billboardSection {
+/* ========================================================
+   HERO BANNER (REDUCED TOP SPACING, CLEAN & MINIMAL)
+   ======================================================== */
+.bannerSection {
   position: relative;
-  width: 100vw;
-  height: clamp(550px, 86vh, 880px);
-  min-height: 520px;
-  display: flex;
-  align-items: flex-end;
-  padding: 0 clamp(1.5rem, 5vw, 4.5rem) clamp(3rem, 6vh, 5rem);
+  width: 100%;
+  padding-top: clamp(4.75rem, 6.5vw, 5.75rem); /* Reduced top spacing */
+  padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  padding-left: var(--section-pad-x, 4.5rem);
+  padding-right: var(--section-pad-x, 4.5rem);
   overflow: hidden;
-  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.billboardBackdrop {
+.bannerImageContainer {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
-.billboardImg {
+.bannerImage {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center 25%;
-  filter: contrast(108%) brightness(0.92);
-  transform: scale(1.02);
+  opacity: 0.6;
 }
 
-/* Netflix Signature Vignettes */
-.vignetteLeft {
+.bannerGradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(7, 8, 11, 0.98) 0%,
-    rgba(7, 8, 11, 0.85) 30%,
-    rgba(7, 8, 11, 0.4) 60%,
-    transparent 100%
-  );
-  z-index: 1;
-}
-
-.vignetteBottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 65%;
-  background: linear-gradient(
-    0deg,
-    #07080b 0%,
-    rgba(7, 8, 11, 0.9) 25%,
-    rgba(7, 8, 11, 0.4) 60%,
-    transparent 100%
-  );
-  z-index: 1;
-}
-
-.vignetteTop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 35%;
   background: linear-gradient(
     180deg,
-    rgba(7, 8, 11, 0.85) 0%,
-    transparent 100%
+    rgba(4, 13, 26, 0.5) 0%,
+    rgba(4, 13, 26, 0.75) 45%,
+    rgba(2, 7, 19, 0.95) 85%,
+    #020713 100%
   );
-  z-index: 1;
-}
-
-.filmGrainOverlay {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
-  background-size: 3px 3px;
-  opacity: 0.7;
-  pointer-events: none;
   z-index: 2;
 }
 
-/* Billboard Content */
-.billboardContent {
+.bannerContent {
   position: relative;
-  z-index: 10;
-  max-width: 680px;
+  z-index: 5;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.85rem;
 }
 
-.backBrowseBtn {
-  align-self: flex-start;
+/* Plain Word Link for "All Projects" (NOT a button) */
+.bannerTopNav {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.25rem;
+}
+
+.backWordLink {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 9999px;
+  gap: 0.45rem;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(245, 245, 247, 0.85);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
-  margin-bottom: 0.5rem;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  background: none;
+  border: none;
+  padding: 0;
+  letter-spacing: -0.015em;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.backBrowseBtn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #ffffff;
+.backWordLink:hover {
+  color: #38bdf8;
   transform: translateX(-3px);
 }
 
-/* Auteur Brand Lockup */
-.auteurBrandLockup {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-family: var(--font-body);
+.backArrow {
+  transition: transform 0.2s ease;
 }
 
-.directorName {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #ffffff;
+.backWordLink:hover .backArrow {
+  transform: translateX(-2px);
 }
 
-.lockupDivider {
-  font-size: 0.75rem;
+.categorySeparator {
   color: rgba(255, 255, 255, 0.3);
+  font-size: 0.85rem;
+  user-select: none;
 }
 
-.directorArchiveLabel {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: rgba(255, 255, 255, 0.65);
+.categoryWord {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #38bdf8;
+  letter-spacing: 0.02em;
 }
 
-.lockupBadge {
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  padding: 0.15rem 0.45rem;
-  border-radius: 4px;
-}
-
-.billboardTitle {
+.projectTitle {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
   color: #ffffff;
   margin: 0;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
-  text-wrap: balance;
 }
 
-.billboardMetaBar {
+.projectTagline {
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+/* Inline Minimal Meta Words Row */
+.metaInlineRow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
+  padding-top: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.55);
 }
 
-.cutBadge {
-  font-family: var(--font-body);
-  font-size: 0.71875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+.metaDot {
+  color: rgba(255, 255, 255, 0.25);
+  user-select: none;
+}
+
+/* ========================================================
+   MAIN CONTENT (CLEAN SINGLE-COLUMN EDITORIAL, ZERO SIDEBAR)
+   ======================================================== */
+.mainContent {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem var(--section-pad-x, 4.5rem) 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.textSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.26);
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
-}
-
-.metaYear,
-.metaDuration {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: rgba(245, 245, 247, 0.75);
-}
-
-.metaDivider {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.28);
-}
-
-.formatBadge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.15rem 0.45rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 4px;
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.billboardSynopsis {
-  font-size: clamp(0.96875rem, 1.1vw, 1.1rem);
-  line-height: 1.65;
-  color: rgba(245, 245, 247, 0.85);
   margin: 0;
-  font-weight: 400;
-  max-width: 620px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
 }
 
-.billboardActions {
+.synopsisText {
+  font-family: var(--font-sans);
+  font-size: clamp(1.02rem, 1.2vw, 1.15rem);
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: -0.012em;
+  margin: 0;
+}
+
+.ctaRow {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1rem;
   padding-top: 0.5rem;
 }
 
-.playPrimaryBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.6rem;
-  background: #ffffff;
-  color: #07080b;
-  border: none;
-  border-radius: 6px;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.playPrimaryBtn:hover {
-  background: rgba(255, 255, 255, 0.85);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.4);
-}
-
-.playPrimaryBtn:active {
-  transform: translateY(0);
-}
-
-.specsSecondaryBtn {
+.inquireCardBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.75rem 1.4rem;
-  background: rgba(109, 109, 110, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.specsSecondaryBtn:hover {
-  background: rgba(109, 109, 110, 0.7);
-  border-color: rgba(255, 255, 255, 0.45);
-  transform: translateY(-2px);
-}
-
-.specsSecondaryBtn:active {
-  transform: translateY(0);
-}
-
-.circleActionBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(42, 42, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.2s ease;
-}
-
-.circleActionBtn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #ffffff;
-  transform: scale(1.08);
-}
-
-.circleActionBtn:active {
-  transform: scale(1);
-}
-
-/* Right Billboard Edge */
-.billboardRightEdge {
-  position: absolute;
-  right: clamp(1.5rem, 4vw, 3.5rem);
-  bottom: clamp(3rem, 6vh, 5rem);
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  z-index: 10;
-}
-
-.scopeBadge {
-  padding: 0.35rem 0.75rem;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-}
-
-.archivalMasterTag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.35rem 0.65rem;
-  background: rgba(14, 16, 22, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 4px;
-  font-size: 0.71875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #ffffff;
-  backdrop-filter: blur(8px);
-}
-
-/* =========================================================================
-   2. NETFLIX TABS NAVIGATION BAR
-   ========================================================================= */
-.tabsNav {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background: rgba(7, 8, 11, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 40;
-  padding: 0 clamp(1.5rem, 5vw, 4.5rem);
-}
-
-.tabsWrapper {
-  max-width: var(--container-max, 1400px);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.tabsWrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.tabItem {
-  position: relative;
-  padding: 1.25rem 0;
-  background: none;
-  border: none;
-  color: rgba(245, 245, 247, 0.6);
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.2s ease;
-}
-
-.tabItem:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.tabActive {
-  color: #ffffff;
-}
-
-.tabActive::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: #ffffff;
-  border-radius: 3px 3px 0 0;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
-}
-
-/* =========================================================================
-   3. MAIN HUB CONTAINER & SECTIONS
-   ========================================================================= */
-.hubContainer {
-  width: 100%;
-  max-width: var(--container-max, 1400px);
-  margin: 0 auto;
-  padding: 3rem clamp(1.5rem, 5vw, 4.5rem) 6rem;
-}
-
-.tabSection {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.sectionHeadingRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 1.5rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.tabTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-size: 0.9rem;
   font-weight: 500;
   color: #ffffff;
-  margin: 0 0 0.35rem;
-  letter-spacing: -0.02em;
-}
-
-.tabSubtitle {
-  font-size: 0.9375rem;
-  color: rgba(245, 245, 247, 0.65);
-  margin: 0;
-  max-width: 650px;
-  line-height: 1.5;
-}
-
-.episodesTotalBadge {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.06);
-  padding: 0.35rem 0.75rem;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  white-space: nowrap;
-}
-
-/* =========================================================================
-   TAB 1: NETFLIX EPISODES / SCENES LIST
-   ========================================================================= */
-.episodesList {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.episodeCard {
-  display: grid;
-  grid-template-columns: 48px 240px 1fr;
-  gap: 1.5rem;
-  align-items: center;
-  padding: 1.25rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  background: rgba(11, 30, 61, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 0.65rem 1.35rem;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.episodeCard:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.episodeIndexBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.episodeNumber {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.episodeCard:hover .episodeNumber {
-  color: #ffffff;
-}
-
-.episodeThumbWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 6px;
-  overflow: hidden;
-  background: #000000;
-}
-
-.episodeImg {
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.episodeCard:hover .episodeImg {
-  transform: scale(1.05);
-}
-
-.thumbHoverOverlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.episodeCard:hover .thumbHoverOverlay {
-  opacity: 1;
-}
-
-.playIconCircle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px solid #ffffff;
-}
-
-.durationPill {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  padding: 0.15rem 0.45rem;
-  background: rgba(0, 0, 0, 0.85);
-  border-radius: 3px;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: #ffffff;
-  pointer-events: none;
-}
-
-.episodeInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.episodeTitleRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.episodeTitle {
-  font-family: var(--font-heading);
-  font-size: 1.0625rem;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0;
-}
-
-.episodeDurationRight {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
-  white-space: nowrap;
-}
-
-.episodeDescription {
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: rgba(245, 245, 247, 0.75);
-  margin: 0;
-}
-
-/* =========================================================================
-   TAB 2: TECHNICAL SPECS GRID
-   ========================================================================= */
-.specsCardsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.25rem;
-}
-
-.specCard {
-  display: flex;
-  gap: 1.25rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 8px;
   transition: all 0.25s ease;
+  width: fit-content;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
-.specCard:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.25);
+.inquireCardBtn:hover {
+  background: rgba(18, 48, 96, 0.9);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(56, 189, 248, 0.15);
   transform: translateY(-2px);
 }
 
-.specIconBox {
+/* ========================================================
+   VISUAL SHOWCASE GALLERY
+   ======================================================== */
+.gallerySection {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.specContent {
+.stillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.stillFigure {
+  position: relative;
+  width: 100%;
+  background: rgba(11, 30, 61, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.stillImg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.stillCaption {
+  padding: 1rem 1.35rem;
+  background: linear-gradient(180deg, rgba(7, 21, 43, 0.75) 0%, #030a17 100%);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.specLabel {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.specValue {
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0 0 0.25rem;
-}
-
-.specNote {
-  font-size: 0.84375rem;
-  line-height: 1.5;
-  color: rgba(245, 245, 247, 0.65);
-  margin: 0;
-}
-
-/* =========================================================================
-   TAB 3: MORE LIKE THIS (Netflix Cards Grid)
-   ========================================================================= */
-.similarGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.similarCard {
-  background: #181818; /* Netflix dark card surface */
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.similarCard:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9);
-}
-
-.similarThumbWrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000000;
-}
-
-.similarImg {
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.similarCard:hover .similarImg {
-  transform: scale(1.05);
-}
-
-.similarOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(24, 24, 24, 1) 0%, transparent 60%);
-}
-
-.matchScoreSmall {
-  position: absolute;
-  top: 0.65rem;
-  left: 0.65rem;
+.stillRoleBadge {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #46d369;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 0.15rem 0.45rem;
-  border-radius: 3px;
-  backdrop-filter: blur(6px);
-}
-
-.similarDurationBadge {
-  position: absolute;
-  bottom: 0.65rem;
-  right: 0.65rem;
-  font-size: 0.6875rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 0.15rem 0.45rem;
-  border-radius: 3px;
+  color: #38bdf8;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.similarBody {
-  padding: 1rem 1.25rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  flex: 1;
-}
-
-.similarMetaRow {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.similarCategory {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.similarMaturity {
-  padding: 0.05rem 0.3rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  font-size: 0.625rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-  border-radius: 2px;
-}
-
-.similarYear {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.similarTitle {
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0;
-}
-
-.similarDesc {
-  font-size: 0.84375rem;
+.stillCaptionText {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
-  color: rgba(245, 245, 247, 0.7);
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
-.similarBottomRow {
-  margin-top: auto;
-  padding-top: 0.6rem;
-}
-
-.viewStudyAction {
-  display: inline-flex;
+/* ========================================================
+   NEXT CASE STUDY FOOTER LINK
+   ======================================================== */
+.nextProjectBanner {
+  display: flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #ffffff;
-  opacity: 0.85;
-  transition: opacity 0.2s ease;
-}
-
-.similarCard:hover .viewStudyAction {
-  opacity: 1;
-}
-
-/* =========================================================================
-   TAB 4: ABOUT THIS PROJECT DETAILS & BOOKING
-   ========================================================================= */
-.detailsGrid {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  justify-content: space-between;
   gap: 2rem;
-  align-items: start;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 30, 61, 0.6) 0%,
+    rgba(5, 18, 38, 0.75) 50%,
+    rgba(2, 8, 20, 0.9) 100%
+  );
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 20px;
+  padding: 1.75rem 2.25rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-.detailsMetaCard {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  padding: 1.75rem;
+.nextProjectInfo {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.35rem;
 }
 
-.detailsRow {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-}
-
-.detailLabel {
-  width: 170px;
-  flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 500;
-}
-
-.detailVal {
-  color: #ffffff;
-  font-weight: 450;
-}
-
-.detailsBookCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  padding: 2rem;
-}
-
-.bookCardInner {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.bookBadge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+.nextProjectSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #38bdf8;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.3rem 0.65rem;
-  border-radius: 4px;
-  align-self: flex-start;
 }
 
-.bookTitle {
+.nextProjectTitle {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   color: #ffffff;
-  line-height: 1.35;
   margin: 0;
 }
 
-.bookText {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: rgba(245, 245, 247, 0.7);
-  margin: 0;
+.nextProjectCategory {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.55);
 }
 
-.inquireBookBtn {
+.nextProjectButton {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.875rem 1.4rem;
-  background: #ffffff;
-  color: #07080b;
-  border: none;
-  border-radius: 6px;
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.2);
-}
-
-.inquireBookBtn:hover {
-  background: #e2e4e9;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.35);
-}
-
-/* =========================================================================
-   4. FULLSCREEN CINEMA PLAYER LIGHTBOX (Netflix Style)
-   ========================================================================= */
-.cinemaBackdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.cinemaPlayerCard {
-  position: relative;
-  width: 94vw;
-  max-width: 1240px;
-  height: 84vh;
-  background: #050507;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95);
-}
-
-.cinemaHeader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
-  z-index: 20;
-}
-
-.playerMeta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.playerLogo {
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #ffffff;
-  padding: 0.25rem 0.6rem;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 4px;
-}
-
-.playerTitle {
-  font-size: 1rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.cinemaCloseBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.cinemaCloseBtn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.1);
-}
-
-.playerStage {
-  position: relative;
-  flex: 1;
-  width: 100%;
-  background: #000000;
-}
-
-.playerImg {
-  object-fit: contain;
-}
-
-.playerVignette {
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
-  pointer-events: none;
-}
-
-.centerPlayPrompt {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: all 0.25s ease;
-  z-index: 10;
-}
-
-.centerPlayPrompt:hover {
-  transform: translate(-50%, -50%) scale(1.15);
-  background: rgba(0, 0, 0, 0.85);
-  border-color: #ffffff;
-}
-
-/* Netflix Bottom Transport Bar */
-.transportBar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem 2rem 1.5rem;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  z-index: 20;
-}
-
-.progressTrack {
-  position: relative;
-  width: 100%;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 3px;
-  cursor: pointer;
-  transition: height 0.15s ease;
-}
-
-.progressTrack:hover {
-  height: 8px;
-}
-
-.progressBarFill {
-  height: 100%;
-  background: #e50914; /* Netflix red scrubber bar */
-  border-radius: 3px;
-  position: relative;
-}
-
-.transportControlsRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.controlsLeft,
-.controlsRight {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.transportIconBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 0.25rem;
-  opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.transportIconBtn:hover {
-  opacity: 1;
-  transform: scale(1.15);
-}
-
-.timecodeDisplay {
+  gap: 0.55rem;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 0.92rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  background: rgba(11, 30, 61, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 0.65rem 1.35rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
-.cinemaBadgeHD {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.75);
-  padding: 0.2rem 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+.nextProjectButton:hover {
+  background: rgba(18, 48, 96, 0.9);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 0 16px rgba(56, 189, 248, 0.15);
+  transform: translateX(3px);
 }
 
-/* =========================================================================
-   RESPONSIVE DESIGN
-   ========================================================================= */
-@media (max-width: 960px) {
-  .episodeCard {
-    grid-template-columns: 36px 180px 1fr;
-    gap: 1rem;
+/* ========================================================
+   RESPONSIVE
+   ======================================================== */
+@media (max-width: 768px) {
+  .bannerSection {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
   }
 
-  .detailsGrid {
-    grid-template-columns: 1fr;
+  .mainContent {
+    padding: 1.25rem var(--section-pad-x, 1.5rem) 3.5rem;
+    gap: 2.5rem;
   }
 
-  .billboardRightEdge {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .billboardSection {
-    height: auto;
-    min-height: 520px;
-    padding-top: 6rem;
-    padding-bottom: 2.5rem;
+  .nextProjectBanner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1.25rem;
   }
 
-  .billboardTitle {
-    font-size: 2.25rem;
-  }
-
-  .billboardActions {
-    flex-wrap: wrap;
-  }
-
-  .episodeCard {
-    grid-template-columns: 1fr;
-  }
-
-  .episodeIndexBox {
-    display: none;
-  }
-
-  .tabsWrapper {
-    gap: 1.5rem;
+  .nextProjectButton {
+    width: 100%;
+    justify-content: center;
   }
 }

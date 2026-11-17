@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
-import { Figtree, Fraunces } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { ContactModal } from "@/components/contact/ContactModal";
-import { GlobalMobileIPod } from "@/components/ui/GlobalMobileIPod";
+import { ResumeModal } from "@/components/resume/ResumeModal";
+import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 
-const figtree = Figtree({
-  variable: "--font-figtree",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
+const sfPro = localFont({
+  src: [
+    {
+      path: "../../public/fonts/SF-Pro.ttf",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/SF-Pro-Italic.ttf",
+      style: "italic",
+    },
+  ],
+  variable: "--font-sf-pro",
   display: "swap",
 });
 
@@ -45,16 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${figtree.variable} ${fraunces.variable}`}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={figtree.className}>
+    <html lang="en" className={sfPro.variable}>
+      <body className={sfPro.className}>
         <Script id="disable-context-menu" strategy="afterInteractive">
           {`
             document.addEventListener('contextmenu', function(e) {
@@ -64,10 +60,12 @@ export default function RootLayout({
             }, false);
           `}
         </Script>
-        <div className="film-grain" aria-hidden="true" />
-        {children}
-        <ContactModal />
-        <GlobalMobileIPod />
+        <SmoothScrollProvider>
+          <div className="film-grain" aria-hidden="true" />
+          {children}
+          <ContactModal />
+          <ResumeModal />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

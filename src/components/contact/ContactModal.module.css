@@ -1,7 +1,5 @@
 /* =========================================================
-   CINEMATIC CONTACT MODAL
-   Palette: Pure 35mm Film Noir Obsidian, Specular Titanium,
-   and Clean Monochrome Silver
+   CINEMATIC EDITORIAL CONTACT OVERLAY (MATCHES HOMEPAGE)
    ========================================================= */
 
 .backdrop {
@@ -9,379 +7,17 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(4, 5, 8, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(2, 6, 14, 0.88);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
   z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(1rem, 3vw, 2.5rem);
-  animation: backdropFadeIn 0.24s ease-out forwards;
+  padding: clamp(1rem, 3.5vw, 2.5rem);
+  animation: backdropFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.modalCard {
-  position: relative;
-  width: 100%;
-  max-width: 640px;
-  max-height: 92vh;
-  overflow-y: auto;
-  background: linear-gradient(180deg, #121318 0%, #08090b 100%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 20px;
-  box-shadow: 
-    0 32px 100px -15px rgba(0, 0, 0, 0.98),
-    0 0 60px rgba(255, 255, 255, 0.04),
-    inset 0 1px 1px rgba(255, 255, 255, 0.2);
-  padding: clamp(1.75rem, 4vw, 2.5rem);
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  animation: modalPopIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
-}
-
-.modalCard::-webkit-scrollbar {
-  width: 5px;
-}
-.modalCard::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-}
-
-/* Ambient Radial Cold Titanium Glow Behind Modal Content */
-.ambientGlow {
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, rgba(30, 35, 45, 0.15) 45%, transparent 70%);
-  filter: blur(65px);
-  pointer-events: none;
-}
-
-/* Modal Header */
-.modalHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.headerInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.eyebrowRow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.eyebrowBadge {
-  font-family: var(--font-body);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  padding: 0.18rem 0.5rem;
-  border-radius: 4px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.eyebrowText {
-  font-family: var(--font-body);
-  font-size: 0.71875rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
-  font-weight: 600;
-}
-
-.title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  color: #ffffff;
-  line-height: 1.18;
-}
-
-.subtitle {
-  font-family: var(--font-body);
-  font-size: clamp(0.875rem, 1.2vw, 0.96875rem);
-  color: rgba(235, 238, 245, 0.7);
-  line-height: 1.55;
-  max-width: 580px;
-}
-
-.closeButton {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.2s ease;
-}
-
-.closeButton:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.45);
-  color: #ffffff;
-  transform: scale(1.06);
-}
-
-/* =========================================================
-   DIRECT CONTACT CARDS GRID
-   ========================================================= */
-.contactGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
-.contactCard {
-  background: rgba(18, 20, 26, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 12px;
-  padding: 1.25rem 1.4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.contactCard:hover {
-  background: rgba(24, 27, 36, 0.85);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 255, 255, 0.05);
-}
-
-.cardTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.cardLabelGroup {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.cardIconBox {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cardLabel {
-  font-family: var(--font-body);
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-  font-weight: 600;
-}
-
-.cardValue {
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #ffffff;
-  letter-spacing: -0.01em;
-  word-break: break-all;
-}
-
-.cardActions {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  margin-top: auto;
-}
-
-/* Primary Action Button — Pure Titanium Monochrome White */
-.actionBtnPrimary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.48rem 1rem;
-  border-radius: 8px;
-  background: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  color: #08090c;
-  font-family: var(--font-heading);
-  font-size: 0.78125rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.18);
-}
-
-.actionBtnPrimary:hover {
-  background: #e2e4e9;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(255, 255, 255, 0.32);
-  color: #000000;
-}
-
-/* Dedicated WhatsApp Button — Sleek Emerald Slate */
-.actionBtnWhatsApp {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.48rem 0.95rem;
-  border-radius: 8px;
-  background: rgba(37, 211, 102, 0.1);
-  border: 1px solid rgba(37, 211, 102, 0.3);
-  color: #4ade80;
-  font-family: var(--font-heading);
-  font-size: 0.78125rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.actionBtnWhatsApp:hover {
-  background: rgba(37, 211, 102, 0.2);
-  border-color: rgba(74, 222, 128, 0.6);
-  color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.2);
-}
-
-/* Secondary Action Button — Subtle Titanium Slate */
-.actionBtnSecondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.48rem 0.9rem;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #e2e4ea;
-  font-family: var(--font-body);
-  font-size: 0.71875rem;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.actionBtnSecondary:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #ffffff;
-}
-
-/* =========================================================
-   STUDIO AVAILABILITY & RESPONSE INFO STRIP
-   ========================================================= */
-.infoStrip {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  background: rgba(16, 18, 24, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-}
-
-.infoItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  color: rgba(235, 238, 245, 0.72);
-  line-height: 1.4;
-}
-
-.infoIcon {
-  color: rgba(255, 255, 255, 0.5);
-  flex-shrink: 0;
-}
-
-/* Social Bottom Bar */
-.socialRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.socialGroup {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.socialLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: #8c929e;
-  transition: color 0.2s ease, transform 0.2s ease;
-  text-decoration: none;
-}
-
-.socialLink:hover {
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.availBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-body);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: #8c929e;
-  text-transform: uppercase;
-}
-
-.availDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #30d158;
-  box-shadow: 0 0 8px rgba(48, 209, 88, 0.6);
-  flex-shrink: 0;
-}
-
-/* Keyframes */
 @keyframes backdropFadeIn {
   from {
     opacity: 0;
@@ -391,10 +27,40 @@
   }
 }
 
-@keyframes modalPopIn {
+.modalWindow {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: rgba(10, 12, 18, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 
+    0 40px 100px -20px rgba(0, 0, 0, 0.96),
+    0 0 1px rgba(255, 255, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: clamp(1.75rem, 4.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  animation: modalScaleIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.modalWindow::-webkit-scrollbar {
+  width: 4px;
+}
+.modalWindow::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+@keyframes modalScaleIn {
   from {
     opacity: 0;
-    transform: scale(0.96) translateY(12px);
+    transform: scale(0.97) translateY(14px);
   }
   to {
     opacity: 1;
@@ -402,20 +68,306 @@
   }
 }
 
-/* Responsive */
+/* =========================================================
+   TOP BRAND BAR
+   ========================================================= */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brandTitle {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.brandDot {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.8rem;
+}
+
+.brandSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.closeBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   EDITORIAL HEADLINE BLOCK
+   ========================================================= */
+.headlineBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.mainHeadline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.highlightWord {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
+
+.subheadline {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.3vw, 1.02rem);
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+  max-width: 580px;
+  margin: 0;
+}
+
+/* =========================================================
+   CLEAN TYPOGRAPHIC CHANNELS
+   ========================================================= */
+.channelsList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.channelRow {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: baseline;
+  padding: clamp(1.2rem, 2.5vw, 1.75rem) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 1.5rem;
+}
+
+.channelMeta {
+  display: flex;
+  align-items: center;
+}
+
+.channelLabel {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+.channelMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.primaryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  width: fit-content;
+}
+
+.linkText {
+  white-space: nowrap;
+}
+
+.arrowIcon {
+  color: rgba(255, 255, 255, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate(0, 0);
+  flex-shrink: 0;
+}
+
+.primaryLink:hover {
+  color: #ffffff;
+}
+
+.primaryLink:hover .arrowIcon {
+  color: #ffffff;
+  transform: translate(3px, -3px);
+}
+
+.actionItems {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.inlineAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.inlineAction:hover {
+  color: #ffffff;
+}
+
+.whatsAppHighlight {
+  color: rgba(74, 222, 128, 0.85);
+}
+
+.whatsAppHighlight:hover {
+  color: #4ade80;
+}
+
+.actionSeparator {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.78rem;
+}
+
+.successColor {
+  color: #34d399;
+}
+
+/* =========================================================
+   EDITORIAL DISCIPLINES STRIP
+   ========================================================= */
+.disciplinesStrip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.25rem 0;
+}
+
+.disciplineName {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: -0.01em;
+}
+
+.disciplineDot {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.82rem;
+}
+
+/* =========================================================
+   BOTTOM SOCIAL & LOCATION ROW
+   ========================================================= */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.socialGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.socialLink:hover {
+  color: #ffffff;
+}
+
+.tinyArrow {
+  opacity: 0.5;
+  transition: all 0.18s ease;
+}
+
+.socialLink:hover .tinyArrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+.locationTag {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+   ========================================================= */
 @media (max-width: 640px) {
-  .contactGrid {
+  .channelRow {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.15rem 0;
   }
 
-  .cardActions {
-    flex-wrap: wrap;
+  .primaryLink {
+    font-size: 1.25rem;
   }
 
-  .socialRow {
+  .linkText {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .bottomBar {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.85rem;
   }
 }
-

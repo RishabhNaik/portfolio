@@ -1,0 +1,406 @@
+.galleryPageWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: transparent;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentLayer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: flex-start;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(6.5rem, 8.5vw, 8rem) var(--section-pad-x, 4.5rem) 5rem;
+  gap: 2rem;
+}
+
+/* ========================================================
+   MINIMAL HEADER (PURE TITLE, ZERO PARAGRAPHS OR PRE TAGS)
+   ======================================================== */
+.galleryTopRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.galleryTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ========================================================
+   AUTHENTIC BENTO GRID LAYOUT
+   ======================================================== */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 250px;
+  grid-auto-flow: dense;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* Bento Tile Span Classes */
+.span2x2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.span2x1 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.span1x2 {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.span1x1 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Bento Item Card */
+.bentoCard {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background-color: #061124;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+  user-select: none;
+}
+
+.bentoCard:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.8),
+              0 0 28px rgba(56, 189, 248, 0.16);
+  z-index: 2;
+}
+
+.bentoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.bentoCard:hover .bentoImage {
+  transform: scale(1.06);
+}
+
+/* Cinematic Atmospheric Gradient Overlay */
+.bentoGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 7, 19, 0.1) 0%,
+    transparent 40%,
+    rgba(2, 7, 19, 0.55) 75%,
+    rgba(2, 7, 19, 0.92) 100%
+  );
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Category Badge Top-Left */
+.bentoBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 0.28rem 0.65rem;
+  background: rgba(16, 18, 24, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  z-index: 2;
+}
+
+/* Content Bottom Overlay */
+.bentoOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.bentoTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.4vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0;
+}
+
+.bentoMeta {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========================================================
+   LIGHTBOX MODAL
+   ======================================================== */
+.lightboxBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(1, 4, 11, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background: #040d1a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+}
+
+.lightboxImageArea {
+  position: relative;
+  width: 100%;
+  max-height: 74vh;
+  background: #01040b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: 74vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightboxCloseBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(2, 7, 19, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(12px);
+}
+
+.lightboxCloseBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.08);
+}
+
+.lightboxNavBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(2, 7, 19, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(12px);
+}
+
+.lightboxNavBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.lightboxPrev {
+  left: 18px;
+}
+
+.lightboxNext {
+  right: 18px;
+}
+
+.lightboxDetails {
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: #040d1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lightboxInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.lightboxTitle {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.lightboxMeta {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.lightboxTags {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+/* ========================================================
+   RESPONSIVE (TABLET & MOBILE)
+   ======================================================== */
+@media (max-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 230px;
+    gap: 1rem;
+  }
+
+  .span2x2 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .span2x1 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .span1x2 {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .span1x1 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .contentLayer {
+    padding: 5.5rem 1.25rem 3.5rem;
+    gap: 1.5rem;
+  }
+
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 1rem;
+  }
+
+  .span2x2,
+  .span2x1,
+  .span1x2,
+  .span1x1 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bentoCard {
+    aspect-ratio: 16 / 10;
+    min-height: 240px;
+  }
+
+  .lightboxDetails {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+  }
+}

@@ -1,0 +1,331 @@
+.ideasSection {
+  position: relative;
+  width: 100%;
+  padding: clamp(4.5rem, 7vw, 6.5rem) var(--section-pad-x, 4.5rem);
+  background-color: #020713;
+  color: #ffffff;
+  z-index: 25;
+  margin: 0;
+  border: none;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.2rem, 3.8vw, 3.5rem);
+}
+
+/* ========================================================
+   HEADER AREA
+   ======================================================== */
+.headerArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.categorySuper {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.superDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 4.8vw, 4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.subheading {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Filter Tabs */
+.filterTabsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.filterBtn {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.45rem 1.15rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.filterBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.filterBtnActive {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #020713;
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.2);
+}
+
+.filterCount {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+/* ========================================================
+   IDEAS GRID
+   ======================================================== */
+.ideasGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .ideasGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.35rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .ideasGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Individual Idea Card */
+.ideaCard {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 30, 61, 0.6) 0%,
+    rgba(5, 18, 38, 0.75) 50%,
+    rgba(2, 8, 20, 0.88) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 1.75rem 1.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+  overflow: hidden;
+}
+
+.ideaCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.38);
+  box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.75),
+              0 0 28px rgba(56, 189, 248, 0.12);
+}
+
+.cardGlow {
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  filter: blur(40px);
+  z-index: 1;
+}
+
+/* Card Top Row: Category and Status Pill */
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.disciplineLabel {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #38bdf8;
+}
+
+.statusBadge {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.75);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.statusDotActive {
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.statusDotProto {
+  background: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+}
+
+.statusDotConcept {
+  background: #a855f7;
+  box-shadow: 0 0 6px #a855f7;
+}
+
+.statusDotCollab {
+  background: #f59e0b;
+  box-shadow: 0 0 6px #f59e0b;
+}
+
+/* Main Content: Title and Pitch */
+.cardMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.ideaTitle {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.ideaDescription {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+}
+
+/* Tags Row */
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  position: relative;
+  z-index: 2;
+  margin-top: 0.25rem;
+}
+
+.tagPill {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  letter-spacing: 0.01em;
+}
+
+/* Card Action Button */
+.cardActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  cursor: pointer;
+  color: #38bdf8;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.cardActionBtn:hover {
+  color: #ffffff;
+}
+
+.actionArrow {
+  transition: transform 0.2s ease;
+}
+
+.ideaCard:hover .actionArrow {
+  transform: translateX(4px);
+}

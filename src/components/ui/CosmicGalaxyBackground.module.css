@@ -1,0 +1,236 @@
+/* ========================================================
+   TEXTURED NOISY BACKGROUND WITH SMOOTHLY ANIMATING BLOBS
+   - Organic luminous sapphire & cyan liquid light blobs
+   - Hardware-accelerated 3D transform animations
+   - Tactile, high-definition monochromatic noise texture
+   ======================================================== */
+
+.texturedBgWrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #030814;
+  background-image: radial-gradient(
+    ellipse 120% 90% at 50% -10%,
+    #081b36 0%,
+    #040f22 45%,
+    #020612 80%,
+    #010308 100%
+  );
+}
+
+/* 01 — Blobs Container */
+.blobsContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Shared Blob Characteristics (GPU Accelerated) */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  pointer-events: none;
+}
+
+/* Blob 1: Vibrant Cyan / Sky Blue */
+.blobCyan {
+  top: -8%;
+  right: -5%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 850px;
+  max-height: 850px;
+  background: radial-gradient(
+    circle at center,
+    rgba(14, 165, 233, 0.32) 0%,
+    rgba(2, 132, 199, 0.18) 40%,
+    rgba(3, 105, 161, 0) 70%
+  );
+  filter: blur(85px);
+  animation: floatCyan 22s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+/* Blob 2: Deep Sapphire / Royal Blue */
+.blobSapphire {
+  top: 25%;
+  left: -12%;
+  width: 65vw;
+  height: 65vw;
+  max-width: 900px;
+  max-height: 900px;
+  background: radial-gradient(
+    circle at center,
+    rgba(37, 99, 235, 0.28) 0%,
+    rgba(29, 78, 216, 0.16) 42%,
+    rgba(30, 58, 138, 0) 70%
+  );
+  filter: blur(95px);
+  animation: floatSapphire 27s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+}
+
+/* Blob 3: Rich Indigo / Twilight Violet */
+.blobIndigo {
+  bottom: -15%;
+  right: 12%;
+  width: 58vw;
+  height: 58vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(
+    circle at center,
+    rgba(99, 102, 241, 0.22) 0%,
+    rgba(79, 70, 229, 0.12) 42%,
+    rgba(49, 46, 129, 0) 70%
+  );
+  filter: blur(100px);
+  animation: floatIndigo 32s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+/* Blob 4: Bright Electric Sky Highlight */
+.blobElectric {
+  top: 18%;
+  left: 28%;
+  width: 44vw;
+  height: 44vw;
+  max-width: 620px;
+  max-height: 620px;
+  background: radial-gradient(
+    circle at center,
+    rgba(56, 189, 248, 0.24) 0%,
+    rgba(14, 165, 233, 0.10) 45%,
+    transparent 70%
+  );
+  filter: blur(75px);
+  animation: floatElectric 19s ease-in-out infinite alternate;
+}
+
+/* Blob 5: Deep Midnight Oceanic Base Glow */
+.blobOceanic {
+  bottom: 2%;
+  left: 8%;
+  width: 55vw;
+  height: 50vw;
+  max-width: 750px;
+  max-height: 700px;
+  background: radial-gradient(
+    circle at center,
+    rgba(29, 78, 216, 0.22) 0%,
+    rgba(3, 105, 161, 0.09) 45%,
+    transparent 70%
+  );
+  filter: blur(90px);
+  animation: floatOceanic 25s ease-in-out infinite alternate;
+}
+
+/* 02 — Smooth Organic Floating Keyframe Animations (Zero Jank, GPU Accelerated) */
+@keyframes floatCyan {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-100px, 70px, 0) scale(1.14) rotate(16deg);
+  }
+  100% {
+    transform: translate3d(50px, -50px, 0) scale(0.92) rotate(-12deg);
+  }
+}
+
+@keyframes floatSapphire {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(120px, -80px, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-40px, 60px, 0) scale(0.94);
+  }
+}
+
+@keyframes floatIndigo {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.96);
+  }
+  50% {
+    transform: translate3d(-90px, -90px, 0) scale(1.15);
+  }
+  100% {
+    transform: translate3d(70px, 40px, 0) scale(0.92);
+  }
+}
+
+@keyframes floatElectric {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(70px, 80px, 0) scale(1.18);
+  }
+  100% {
+    transform: translate3d(-60px, -35px, 0) scale(0.88);
+  }
+}
+
+@keyframes floatOceanic {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+  50% {
+    transform: translate3d(-50px, -70px, 0) scale(0.92);
+  }
+  100% {
+    transform: translate3d(80px, 35px, 0) scale(1.08);
+  }
+}
+
+/* 03 — Radial Atmospheric Vignette & Contrast Depth */
+.vignetteOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 35%,
+    rgba(2, 6, 16, 0.45) 75%,
+    rgba(1, 4, 10, 0.75) 100%
+  );
+}
+
+/* 04 — Tactile Textured Noise Overlay (Rich SVG Fractal Turbulence) */
+.noiseTexture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.11;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Micro-grain for tangible tactile depth */
+.microGrainTexture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='microNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23microNoise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}

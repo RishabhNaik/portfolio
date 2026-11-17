@@ -103,7 +103,6 @@ export const PrintedField: React.FC<PrintedFieldProps> = ({
   };
 
   const scrollByDelta = (direction: "left" | "right") => {
-    cinematicAudioHaptics.playFilmReelTick();
     const el = scrollContainerRef.current;
     if (!el) return;
     const step = el.clientWidth * 0.6;

@@ -1,0 +1,206 @@
+.galaxyContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.42;
+  transition: opacity 0.6s ease;
+}
+
+.svgCanvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ========================================================
+   GALAXY NUCLEUS & SPIRAL ARMS
+   ======================================================== */
+.galaxyCore {
+  animation: galacticRotation 180s linear infinite;
+  transform-origin: center;
+}
+
+.galacticNucleus {
+  fill: #38bdf8;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.8));
+  animation: corePulse 6s ease-in-out infinite;
+}
+
+.coreAura {
+  stroke: rgba(56, 189, 248, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 8;
+  fill: rgba(41, 151, 255, 0.05);
+}
+
+.coreOuterAura {
+  stroke: rgba(41, 151, 255, 0.2);
+  stroke-width: 1;
+  stroke-dasharray: 8 12;
+  fill: none;
+}
+
+.spiralArm {
+  stroke: rgba(56, 189, 248, 0.28);
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+}
+
+/* Spiral Pulses */
+.pulseSpiral1 {
+  stroke-dasharray: 80 180;
+  animation: streamForward 14s linear infinite;
+}
+
+.pulseSpiral2 {
+  stroke-dasharray: 90 200;
+  animation: streamForward 16s linear infinite 2s;
+}
+
+.pulseSpiral3 {
+  stroke-dasharray: 75 160;
+  animation: streamForward 12s linear infinite 4s;
+}
+
+.pulseSpiral4 {
+  stroke-dasharray: 85 190;
+  animation: streamForward 15s linear infinite 6s;
+}
+
+/* ========================================================
+   NEURAL FILAMENTS & DENDRITIC BRANCHES
+   ======================================================== */
+.mainNerve {
+  stroke: rgba(41, 151, 255, 0.32);
+  stroke-width: 2.2;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.subNerve {
+  stroke: rgba(56, 189, 248, 0.24);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.fineDendrite {
+  stroke: rgba(56, 189, 248, 0.18);
+  stroke-width: 1;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.synapticBridge {
+  stroke: rgba(41, 151, 255, 0.2);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 6;
+  fill: none;
+}
+
+/* Neural Impulse Wave Streams */
+.pulseStream1 {
+  stroke-dasharray: 70 180;
+  animation: streamForward 9s linear infinite;
+}
+
+.pulseStream2 {
+  stroke-dasharray: 85 210;
+  animation: streamForward 12s linear infinite reverse;
+}
+
+.pulseStream3 {
+  stroke-dasharray: 60 160;
+  animation: streamForward 10s linear infinite 1.5s;
+}
+
+.pulseStream4 {
+  stroke-dasharray: 95 240;
+  animation: streamForward 14s linear infinite reverse 3s;
+}
+
+@keyframes streamForward {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 800;
+  }
+}
+
+@keyframes galacticRotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes corePulse {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* ========================================================
+   CONSTELLATION NODES & STARS
+   ======================================================== */
+.majorStar1 {
+  fill: #38bdf8;
+  animation: starTwinkle 4s ease-in-out infinite;
+}
+
+.majorStar2 {
+  fill: #60a5fa;
+  animation: starTwinkle 4.8s ease-in-out infinite 1.5s;
+}
+
+.majorStar3 {
+  fill: #ffffff;
+  animation: starTwinkle 5.2s ease-in-out infinite 2.8s;
+}
+
+.ambientStar1 {
+  fill: #93c5fd;
+  opacity: 0.45;
+  animation: starBreathe 6s ease-in-out infinite;
+}
+
+.ambientStar2 {
+  fill: #38bdf8;
+  opacity: 0.35;
+  animation: starBreathe 7.5s ease-in-out infinite 2s;
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes starBreathe {
+  0%, 100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}

@@ -1,0 +1,267 @@
+/* ========================================================
+   SIDEBAR MENU DRAWER (CINEMATIC LUXURY ANIMATION)
+   ======================================================== */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 16, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 99998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.backdropVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(380px, 88vw);
+  background: rgba(5, 10, 22, 0.96);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.85),
+              inset 1px 0 0 rgba(255, 255, 255, 0.05);
+  z-index: 99999;
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #ffffff;
+  padding: 2.25rem 2.25rem 2rem;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+/* ========================================================
+   DRAWER HEADER
+   ======================================================== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawerOpen .header {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.06s;
+}
+
+.brandTitle {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.closeBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: rotate(90deg) scale(1.06);
+}
+
+/* ========================================================
+   NAVIGATION MENU & STAGGERED ENTRANCE ANIMATION
+   ======================================================== */
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  width: 100%;
+}
+
+.navLinkItem {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 2.65rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.2s ease;
+  user-select: none;
+}
+
+/* Staggered entrance animation when drawer opens */
+.drawerOpen .navMenu .navLinkItem:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.09s;
+}
+
+.drawerOpen .navMenu .navLinkItem:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.14s;
+}
+
+.drawerOpen .navMenu .navLinkItem:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.19s;
+}
+
+.drawerOpen .navMenu .navLinkItem:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.24s;
+}
+
+.drawerOpen .navMenu .navLinkItem:nth-child(5) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.29s;
+}
+
+.drawerOpen .navMenu .navLinkItem:nth-child(6) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.34s;
+}
+
+/* Hover state: clean silver-white shift */
+.navLinkItem:hover {
+  opacity: 0.72;
+  transform: translateX(8px);
+}
+
+/* Fast exit when closing */
+.drawer:not(.drawerOpen) .navLinkItem,
+.drawer:not(.drawerOpen) .header,
+.drawer:not(.drawerOpen) .footer {
+  transition-delay: 0s !important;
+  transition-duration: 0.2s !important;
+}
+
+/* ========================================================
+   DRAWER FOOTER: CONTACT & SOCIALS
+   ======================================================== */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawerOpen .footer {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.36s;
+}
+
+.directContact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.emailLink,
+.phoneLink {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.emailLink:hover,
+.phoneLink:hover {
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.socialIcon:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ========================================================
+   RESPONSIVE (MOBILE DEVICES)
+   ======================================================== */
+@media (max-width: 480px) {
+  .drawer {
+    width: 90vw;
+    padding: 1.75rem 1.5rem 1.5rem;
+  }
+
+  .navMenu {
+    gap: 1.2rem;
+  }
+
+  .navLinkItem {
+    font-size: clamp(1.85rem, 8vw, 2.3rem);
+  }
+}

@@ -4,12 +4,14 @@ import React from "react";
 import Image from "next/image";
 import { Download, Sparkles, Film, Camera } from "lucide-react";
 import { openContactModal } from "@/components/contact/contactModalState";
+import { openResumeModal } from "@/components/resume/resumeModalState";
 import { cinematicAudioHaptics } from "@/utils/cinematicAudioHaptics";
 import styles from "./AboutSection.module.css";
 
 export const AboutSection: React.FC = () => {
-  const handleDownloadClick = () => {
+  const handleResumeClick = () => {
     cinematicAudioHaptics.playTactileClick();
+    openResumeModal();
   };
 
   const handleContactClick = () => {
@@ -121,16 +123,15 @@ export const AboutSection: React.FC = () => {
 
             {/* Resume Download Button Directly Below the Images */}
             <div className={styles.resumeActionWrapper}>
-              <a
-                href="/assets/Rishabh_Naik_Resume.pdf"
-                download="Rishabh_Naik_Resume.pdf"
+              <button
+                type="button"
                 className={styles.downloadResumeBtn}
-                onClick={handleDownloadClick}
-                aria-label="Download Rishabh Naik Resume PDF"
+                onClick={handleResumeClick}
+                aria-label="View and Download Rishabh Naik Resume PDF"
               >
                 <Download size={16} className={styles.btnIcon} />
-                <span>Download Resume</span>
-              </a>
+                <span>View Resume</span>
+              </button>
 
               <button
                 type="button"

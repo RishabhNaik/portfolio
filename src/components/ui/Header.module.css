@@ -3,202 +3,185 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.25rem var(--section-pad-x, 4.5rem);
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+
+.headerInner {
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.mainNavRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Three columns matching Apple minimalism */
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.brandCenter {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 3.5rem var(--section-pad-x);
-  pointer-events: auto;
-  background: linear-gradient(180deg, rgba(5, 5, 5, 0.88) 0%, rgba(5, 5, 5, 0) 100%);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  flex: 1;
+  text-align: center;
 }
 
-.brand {
+.navRight {
   display: flex;
   align-items: center;
+  gap: 2rem;
+  flex: 1;
+  justify-content: flex-end;
 }
 
-.logoLink {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-  transition: opacity var(--trans-fast);
-}
-
-.logoLink:hover {
-  opacity: 0.8;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.navList {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  align-items: center;
-}
-
-.separator {
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 0.6rem;
-  margin-top: 0.1rem;
-}
-
-.navLink {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: rgba(245, 245, 247, 0.82);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-  transition: color var(--trans-fast), opacity var(--trans-fast);
+/* Apple SF style links */
+.navLink,
+.desktopContactBtn {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: #ffffff;
   background: none;
   border: none;
   cursor: pointer;
-  font-family: inherit;
-  padding: 0;
-  text-transform: uppercase;
+  padding: 0.2rem 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
-.navLink:hover {
+.navLink:hover,
+.desktopContactBtn:hover {
+  opacity: 0.75;
+}
+
+.desktopOnly {
+  display: inline-block;
+}
+
+/* Center brand logo */
+.logoLink {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.035em; /* Apple display tracking */
   color: #ffffff;
-  opacity: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
 }
 
-.soundContainer {
-  position: absolute;
-  top: 2.2rem;
-  right: var(--section-pad-x);
+.logoLink:hover {
+  opacity: 0.85;
 }
 
-.soundToggleBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.65rem;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(245, 245, 247, 0.75);
+/* Hamburger menu trigger */
+.hamburgerButton {
+  background: none;
+  border: none;
   cursor: pointer;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.soundToggleBtn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.28);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.soundToggleBtn:active {
-  transform: translateY(0);
-}
-
-.soundIcon {
-  display: flex;
-  align-items: center;
+  padding: 0.35rem;
+  display: inline-flex;
+  flex-direction: column;
   justify-content: center;
-  color: var(--color-titanium, #e5e5ea);
+  align-items: center;
+  gap: 4px;
+  color: #ffffff;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.soundLabel {
-  line-height: 1;
+.hamburgerButton:hover {
+  opacity: 0.85;
+  transform: scale(1.06);
 }
 
-@media (max-width: 640px) {
-  .header {
-    padding: 1.5rem 1.25rem;
-  }
-  
-  .navList {
-    gap: 1rem;
-  }
-  
-  .navLink {
-    font-size: 0.875rem;
-  }
-
-  .soundToggleBtn {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.7rem;
-  }
+.hamburgerLine {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* =========================================================
-   SCROLLED STATE (FLOATING BOTTOM PILL)
-   ========================================================= */
+.hamburgerButton:hover .hamburgerLine {
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
+/* Scrolled sticky state */
 .headerScrolled {
   position: fixed;
-  top: auto;
-  bottom: 2rem;
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
-  flex-direction: row;
-  padding: 0.8rem 1.8rem;
-  gap: 1.5rem;
-  background: rgba(10, 12, 18, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-  width: max-content;
-  max-width: 95vw;
-  z-index: 1000;
-  animation: slideUpPill 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(7, 19, 38, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1.25rem var(--section-pad-x, 4.5rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes slideUpPill {
-  from {
-    transform: translate(-50%, 100px);
-    opacity: 0;
+@media (max-width: 768px) {
+  .header {
+    padding: 1.15rem 1.25rem;
   }
-  to {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
-}
 
-.headerScrolled .logoLink {
-  font-size: 1.15rem;
-  letter-spacing: 0.02em;
-}
-
-.headerScrolled .soundContainer {
-  position: static;
-  margin-left: 0.5rem;
-}
-
-.headerScrolled .navList {
-  gap: 1.25rem;
-}
-
-.headerScrolled .navLink {
-  font-size: 0.7rem;
-}
-
-.headerScrolled .separator {
-  display: none;
-}
-
-@media (max-width: 840px) {
   .headerScrolled {
-    display: none;
+    padding: 0.95rem 1.25rem;
+  }
+
+  .navLeft {
+    display: none !important;
+  }
+
+  .desktopContactBtn,
+  .desktopOnly {
+    display: none !important;
+  }
+
+  .brandCenter {
+    flex: 1;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .navRight {
+    flex: none;
+    justify-content: flex-end;
+    gap: 0;
+  }
+
+  .logoLink {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 1rem 1rem;
+  }
+
+  .headerScrolled {
+    padding: 0.85rem 1rem;
+  }
+
+  .logoLink {
+    font-size: 1.22rem;
   }
 }
